@@ -4,7 +4,6 @@ import 'package:url_launcher/url_launcher.dart';
 
 import 'components/app_utils.dart';
 
-
 class Projects extends StatelessWidget {
   Projects({Key? key}) : super(key: key);
 
@@ -56,7 +55,5 @@ _launchURLBrowser(url) async {
     throw 'Could not launch $url';
   }
 }
-
-
 
 /// A ListItem that contains data to display a message.

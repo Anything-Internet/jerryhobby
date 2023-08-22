@@ -59,7 +59,7 @@ class MyAppState extends State<MyApp> {
       child: ListView(
         children: [
           DrawerHeader(
-            child: Text('Jerry Hobby'),
+            child: Image(image: AssetImage('assets/images/jerrytoon.png')),
             decoration: BoxDecoration(
               color: Colors.indigo[900],
             ),

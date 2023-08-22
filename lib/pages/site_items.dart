@@ -37,7 +37,6 @@ final List<SiteItem> sites = [
       "https://jerryhobby.com/piwigo/"),
 ];
 
-
 //////////////////////////////////////////////////////////////////
 
 /// The base class for the different types of items the list can contain.
@@ -59,6 +58,7 @@ class HeadingItem implements ListItem {
       style: Theme.of(context).textTheme.headlineSmall,
     );
   }
+
   @override
   Widget buildDescription(BuildContext context) => const SizedBox.shrink();
 }
