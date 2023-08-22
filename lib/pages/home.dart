@@ -19,7 +19,7 @@ class Home extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.7,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("images/frame.png"),
+                image: AssetImage("assets/images/frame.png"),
                 fit: BoxFit.contain,
               ),
             ),

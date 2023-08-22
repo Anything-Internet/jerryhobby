@@ -3,22 +3,22 @@ import 'package:flutter/material.dart';
 final List<SiteItem> sites = [
   SiteItem(
       'Chess Trainer',
-      AssetImage('images/chesstrainer.png'),
+      AssetImage('assets/images/chesstrainer.png'),
       'Chess Trainer is a chess training app for Android and iOS. It is written in Dart and uses Flutter for the UI.',
       'https://jerryhobby.com/chesstrainer/'),
   SiteItem(
       'Magic 8-Ball',
-      AssetImage('images/8ball.png'),
+      AssetImage('assets/images/8ball.png'),
       'Magic 8-Ball is a simple app for Android and iOS. It is written in Dart and uses Flutter for the UI.',
       'https://jerryhobby.com/magic8ball/'),
   SiteItem(
       'GameHub',
-      AssetImage('images/gameon.png'),
+      AssetImage('assets/images/gameon.png'),
       'GameHub is an app for browsing computer games.  It is written in React and TypeScript.',
       'https://gamehub.jerryhobby.com/'),
   SiteItem(
     'Call Journal',
-    AssetImage('images/calllogicon.png'),
+    AssetImage('assets/images/calllogicon.png'),
     'Call Journal is an app for Android and iOS. '
         'It is written in Dart and uses Flutter for the UI.'
         'It is a call log with a few extra features.'
@@ -32,7 +32,7 @@ final List<SiteItem> sites = [
   ),
   SiteItem(
       "My Photos",
-      AssetImage('images/hobbyphotography.png'),
+      AssetImage('assets/images/hobbyphotography.png'),
       "Just a photo album.  I didn't write it.",
       "https://jerryhobby.com/piwigo/"),
 ];
