@@ -8,6 +8,7 @@ import 'pages/download.dart';
 import 'pages/education.dart';
 import 'pages/experience.dart';
 import 'pages/objectives.dart';
+import 'pages/skills.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -33,6 +34,8 @@ class MyAppState extends State<MyApp> {
   Widget education = Education();
   Widget projects = Projects();
   Widget download = Download();
+  Widget skills = Skills();
+
   late Widget currentPage;
 
   MyAppState() {
@@ -101,6 +104,15 @@ class MyAppState extends State<MyApp> {
             onTap: () {
               setState(() {
                 currentPage = summary;
+              });
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            title: Text('Skills'),
+            onTap: () {
+              setState(() {
+                currentPage = skills;
               });
               Navigator.pop(context);
             },
