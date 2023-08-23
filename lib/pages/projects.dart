@@ -50,16 +50,9 @@ class Projects extends StatelessWidget {
             ListTile(
               tileColor: Colors.white,
             minLeadingWidth: 90,
-            //tileColor: Colors.indigo[50],
-            //hoverColor: Colors.indigo[100],
+
             visualDensity: VisualDensity.comfortable,
             titleTextStyle: Theme.of(context).textTheme.headlineSmall,
-            // shape: RoundedRectangleBorder(
-            //     borderRadius: BorderRadius.circular(10.0),
-            //     side: BorderSide(
-            //       color: Colors.black12,
-            //       width: 1,
-            //     )),
             title: item.buildTitle(context),
             subtitle: item.buildDescription(context),
             leading: item.buildImage(context),
@@ -82,4 +75,3 @@ _launchURLBrowser(url) async {
   }
 }
 
-/// A ListItem that contains data to display a message.

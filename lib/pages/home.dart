@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'components/app_utils.dart';
 import 'page_content.dart';
 
-
 class Home extends StatelessWidget {
   Home({Key? key}) : super(key: key) {
     print("Home: constructor");
@@ -30,10 +29,10 @@ class Home extends StatelessWidget {
         ),
         horizontalDivider(),
         Container(
-          padding: textPadding,
-          alignment: Alignment.topLeft,
           child: SelectableText(
-            'Scan the QR code to open this site on your mobile device.',
+            'Scan the QR code to open \n'
+            'this site on your mobile device.',
+            textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.headlineSmall,
           ),
         ),

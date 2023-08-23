@@ -93,7 +93,11 @@ class MyAppState extends State<MyApp> {
     );
 
     Scaffold narrowScaffold = Scaffold(
-      drawer: Drawer(width: 130, child: drawer(screenNarrow)),
+      drawer: Drawer(
+          surfaceTintColor: Colors.white,
+          backgroundColor: Colors.indigo[50],
+          width: 130,
+          child: drawer(screenNarrow)),
       backgroundColor: Colors.white,
       appBar: appBar(),
       body: Container(
