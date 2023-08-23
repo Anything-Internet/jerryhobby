@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 EdgeInsets textPadding = EdgeInsets.fromLTRB(30, 10, 30, 0);
 
 pageContent(String) {
-  switch (String) {
+  switch (String.toLowerCase()) {
 
     /////////////////////////////////////////////////////////////////
     case 'home':
@@ -23,9 +23,7 @@ Effective at technical support, inventory management and customer relationship d
   /////////////////////////////////////////////////////////////////
     case 'projects':
       return '''
-These projects are all basic and in development. You are free to look at them, but they are not ready for prime time.
-      
-I do not have any production projects here for security or NDA reasons.
+These are mostly written in Flutter/Dart or React/TypeScript. Most are tiny apps designed to explore specific language features and are not built as real apps.
 ''';
 
   /////////////////////////////////////////////////////////////////

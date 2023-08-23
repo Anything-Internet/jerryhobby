@@ -24,16 +24,19 @@ class Projects extends StatelessWidget {
         ),
         horizontalDivider(),
         Expanded(
-          child: SizedBox(
-            child: siteRows(),
-          ),
+          child: siteRows(),
         ),
       ],
     );
   }
 
   siteRows() {
-    return ListView.builder(
+    return ListView.separated(
+        separatorBuilder: (context, index) => Container(
+              height: 10,
+        ),
+
+        padding: EdgeInsets.fromLTRB(20, 0, 20, 10),
         // Let the ListView know how many items it needs to build.
         itemCount: sites.length,
         // Provide a builder function. This is where the magic happens.
@@ -41,16 +44,32 @@ class Projects extends StatelessWidget {
         itemBuilder: (context, index) {
           final item = sites[index];
 
-          return ListTile(
+          return Material(
+            elevation: 3,
+          child:
+            ListTile(
+              tileColor: Colors.white,
             minLeadingWidth: 90,
+            //tileColor: Colors.indigo[50],
+            //hoverColor: Colors.indigo[100],
+            visualDensity: VisualDensity.comfortable,
+            titleTextStyle: Theme.of(context).textTheme.headlineSmall,
+            // shape: RoundedRectangleBorder(
+            //     borderRadius: BorderRadius.circular(10.0),
+            //     side: BorderSide(
+            //       color: Colors.black12,
+            //       width: 1,
+            //     )),
             title: item.buildTitle(context),
             subtitle: item.buildDescription(context),
             leading: item.buildImage(context),
             onTap: () {
               _launchURLBrowser(item.url);
             },
+          ),
           );
-        });
+        },
+      );
   }
 }
 

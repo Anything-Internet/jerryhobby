@@ -17,14 +17,14 @@ void main() {
       //brightness: Brightness.dark,
 
       // Define the default font family.
-      fontFamily: 'Georgia',
+      fontFamily: 'Hind',
       primaryColor: Colors.blueGrey[900],
 
       // Define the default `TextTheme`. Use this to specify the default
       // text styling for headlines, titles, bodies of text, and more.
 
       textTheme: const TextTheme(
-        headlineSmall: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        headlineSmall: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         displayLarge: TextStyle(fontSize: 72, fontWeight: FontWeight.bold),
         titleLarge: TextStyle(
             fontSize: 36,
@@ -196,7 +196,7 @@ class MyAppState extends State<MyApp> {
             ),
           ),
         Image(
-            image: AssetImage('assets/images/jerrytoon.png'),
+            image: AssetImage('assets/images/jerrytoonright.png'),
             height: 50,
             width: 50),
         ],
