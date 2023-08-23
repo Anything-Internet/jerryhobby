@@ -13,14 +13,14 @@ class Projects extends StatelessWidget {
   Widget build(context) {
     return Column(
       children: [
-        Text(
+        SelectableText(
           'Current Projects',
           style: Theme.of(context).textTheme.headlineMedium,
         ),
         Container(
           padding: textPadding,
           alignment: Alignment.topLeft,
-          child: Text(content),
+          child: SelectableText(content),
         ),
         horizontalDivider(),
         Expanded(

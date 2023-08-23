@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import 'pages/home.dart';
 import 'pages/projects.dart';
 import 'pages/summary.dart';
@@ -12,6 +12,28 @@ import 'pages/skills.dart';
 
 void main() {
   runApp(MaterialApp(
+    theme: ThemeData(
+      // Define the default brightness and colors.
+      //brightness: Brightness.dark,
+
+      // Define the default font family.
+      fontFamily: 'Georgia',
+      primaryColor: Colors.blueGrey[900],
+
+      // Define the default `TextTheme`. Use this to specify the default
+      // text styling for headlines, titles, bodies of text, and more.
+
+      textTheme: const TextTheme(
+        headlineSmall: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        displayLarge: TextStyle(fontSize: 72, fontWeight: FontWeight.bold),
+        titleLarge: TextStyle(
+            fontSize: 36,
+            fontWeight: FontWeight.bold,
+            fontStyle: FontStyle.normal),
+        bodyMedium: TextStyle(fontSize: 18, fontFamily: 'Hind'),
+        bodySmall: TextStyle(fontSize: 14, fontFamily: 'Hind'),
+      ),
+    ),
     debugShowCheckedModeBanner: false,
     title: 'Jerry Hobby',
     home: MyApp(),
@@ -53,7 +75,8 @@ class MyAppState extends State<MyApp> {
       drawer: drawer(),
       backgroundColor: Colors.white,
       appBar: appBar(),
-      body: currentPage,
+      body: Container(
+          padding: EdgeInsets.fromLTRB(0, 20, 0, 0), child: currentPage),
     );
   }
 
@@ -65,10 +88,8 @@ class MyAppState extends State<MyApp> {
           DrawerHeader(
             padding: EdgeInsets.fromLTRB(0, 30.0, 0, 0),
             margin: EdgeInsets.zero,
-
             child: Image(image: AssetImage('assets/images/jerrytoon.png')),
             decoration: BoxDecoration(
-
               color: Colors.indigo[200],
             ),
           ),
@@ -160,9 +181,26 @@ class MyAppState extends State<MyApp> {
 
   appBar() {
     return AppBar(
+      toolbarHeight: 70,
       backgroundColor: Colors.indigo[900],
       foregroundColor: Colors.white,
-      title: Text('Jerry Hobby'),
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          SelectableText(
+            'Jerry Hobby',
+
+            style: GoogleFonts.roboto(
+              color: Colors.white,
+              textStyle: Theme.of(context).textTheme.headlineSmall,
+            ),
+          ),
+        Image(
+            image: AssetImage('assets/images/jerrytoon.png'),
+            height: 50,
+            width: 50),
+        ],
+      ),
     );
     // return
   }

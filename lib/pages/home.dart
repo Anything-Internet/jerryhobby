@@ -17,7 +17,7 @@ class Home extends StatelessWidget {
       padding: const EdgeInsets.all(0),
       children: [
         Center(
-          child: Text(
+          child: SelectableText(
             pageTitle,
             style: Theme.of(context).textTheme.headlineMedium,
           ),
@@ -26,13 +26,13 @@ class Home extends StatelessWidget {
         Container(
           padding: textPadding,
           alignment: Alignment.topLeft,
-          child: Text(content),
+          child: SelectableText(content),
         ),
         horizontalDivider(),
         Container(
           padding: textPadding,
           alignment: Alignment.topLeft,
-          child: Text(
+          child: SelectableText(
             'Scan the QR code to open this site on your mobile device.',
             style: Theme.of(context).textTheme.headlineSmall,
           ),

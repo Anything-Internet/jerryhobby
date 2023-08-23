@@ -13,7 +13,7 @@ class Education extends StatelessWidget {
     return ListView(
       children: [
         Center(
-          child: Text(
+          child: SelectableText(
             pageTitle,
             style: Theme.of(context).textTheme.headlineMedium,
           ),
@@ -22,7 +22,7 @@ class Education extends StatelessWidget {
         Container(
           padding: textPadding,
           alignment: Alignment.topLeft,
-          child: Text(content),
+          child: SelectableText(content),
         ),
       ],
     );

@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 
 EdgeInsets textPadding = EdgeInsets.fromLTRB(30, 10, 30, 0);
 
-
 pageContent(String) {
   switch (String) {
 

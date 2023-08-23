@@ -53,7 +53,7 @@ class HeadingItem implements ListItem {
 
   @override
   Widget buildTitle(BuildContext context) {
-    return Text(
+    return SelectableText(
       heading,
       style: Theme.of(context).textTheme.headlineSmall,
     );
@@ -77,5 +77,5 @@ class SiteItem implements ListItem {
   Widget buildDescription(BuildContext context) => Text(description);
 
   Widget buildImage(BuildContext context) => Image(image: image);
-  Widget buildUrl(BuildContext context) => Text(url);
+  Widget buildUrl(BuildContext context) => SelectableText(url);
 }
