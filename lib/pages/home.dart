@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
 import 'components/app_utils.dart';
+import 'page_content.dart';
+
 
 class Home extends StatelessWidget {
   Home({Key? key}) : super(key: key) {
     print("Home: constructor");
   }
+  final pageTitle = 'Introducing Jerry';
+  final content = pageContent("home");
 
   @override
   Widget build(context) {
-    EdgeInsets textPadding = EdgeInsets.fromLTRB(30, 10, 30, 10);
-
     return ListView(
       primary: false,
       padding: const EdgeInsets.all(0),
       children: [
         Center(
           child: Text(
-            'All About Jerry',
+            pageTitle,
             style: Theme.of(context).textTheme.headlineMedium,
           ),
         ),
@@ -24,17 +26,7 @@ class Home extends StatelessWidget {
         Container(
           padding: textPadding,
           alignment: Alignment.topLeft,
-          child: Text(
-              'After a long career as a software developer and infrastructure engineer, '
-              "I've begun refreshing my skills. I've taken a liking to working with React,"
-              "TypeScript, Flutter, Dart, and Python."),
-        ),
-        Container(
-          padding: textPadding,
-          alignment: Alignment.topLeft,
-          child: Text(
-              "This site is basically a business card / resume / portfolio.  It's just my playground "
-              "for pet projects and a place to show off my skills."),
+          child: Text(content),
         ),
         horizontalDivider(),
         Container(

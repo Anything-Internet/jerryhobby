@@ -56,12 +56,17 @@ class MyAppState extends State<MyApp> {
 
   drawer() {
     return Drawer(
+      width: 130,
       child: ListView(
         children: [
           DrawerHeader(
+            padding: EdgeInsets.fromLTRB(0, 30.0, 0, 0),
+            margin: EdgeInsets.zero,
+
             child: Image(image: AssetImage('assets/images/jerrytoon.png')),
             decoration: BoxDecoration(
-              color: Colors.indigo[900],
+
+              color: Colors.indigo[200],
             ),
           ),
           ListTile(

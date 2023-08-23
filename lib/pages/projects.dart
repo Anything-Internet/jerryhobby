@@ -3,9 +3,11 @@ import 'package:mi_card/pages/site_items.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'components/app_utils.dart';
+import 'page_content.dart';
 
 class Projects extends StatelessWidget {
   Projects({Key? key}) : super(key: key);
+  final String content = pageContent("projects");
 
   @override
   Widget build(context) {
@@ -14,6 +16,11 @@ class Projects extends StatelessWidget {
         Text(
           'Current Projects',
           style: Theme.of(context).textTheme.headlineMedium,
+        ),
+        Container(
+          padding: textPadding,
+          alignment: Alignment.topLeft,
+          child: Text(content),
         ),
         horizontalDivider(),
         Expanded(

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'components/app_utils.dart';
+import 'page_content.dart';
 
 class Download extends StatelessWidget {
-  const Download({Key? key}) : super(key: key);
+  Download({Key? key}) : super(key: key);
   final pageTitle = 'Download';
+  final content = pageContent('download');
 
   @override
   Widget build(context) {
-    EdgeInsets textPadding = EdgeInsets.fromLTRB(30, 10, 30, 10);
-
     return ListView(
       children: [
         Center(
@@ -21,9 +21,7 @@ class Download extends StatelessWidget {
         Container(
           padding: textPadding,
           alignment: Alignment.topLeft,
-          child: Text(
-            "You can download a printable copy of my resume here: (coming soon",
-          ),
+          child: Text(content),
         ),
       ],
     );

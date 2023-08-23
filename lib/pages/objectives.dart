@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'components/app_utils.dart';
+import 'page_content.dart';
 
 class Objectives extends StatelessWidget {
-  const Objectives({Key? key}) : super(key: key);
+  Objectives({Key? key}) : super(key: key);
   final pageTitle = 'Objectives';
+  final content = pageContent("objectives");
 
   @override
   Widget build(context) {
-    EdgeInsets textPadding = EdgeInsets.fromLTRB(30, 10, 30, 10);
-
     return ListView(
       children: [
         Center(
@@ -21,9 +21,7 @@ class Objectives extends StatelessWidget {
         Container(
           padding: textPadding,
           alignment: Alignment.topLeft,
-          child: Text(
-              "A list of my goals and objectives will be here."
-          ),
+          child: Text(content),
         ),
       ],
     );

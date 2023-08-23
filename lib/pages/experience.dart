@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'components/app_utils.dart';
+import 'page_content.dart';
 
 class Experience extends StatelessWidget {
-  const Experience({Key? key}) : super(key: key);
+  Experience({Key? key}) : super(key: key);
   final pageTitle = 'Experience';
+  final content = pageContent("experience");
 
   @override
   Widget build(context) {
-    EdgeInsets textPadding = EdgeInsets.fromLTRB(30, 10, 30, 10);
-
     return ListView(
       children: [
         Center(
@@ -21,9 +21,7 @@ class Experience extends StatelessWidget {
         Container(
           padding: textPadding,
           alignment: Alignment.topLeft,
-          child: Text(
-              "My career and projects history will be here."
-          ),
+          child: Text(content),
         ),
       ],
     );

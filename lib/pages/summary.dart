@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'components/app_utils.dart';
+import 'page_content.dart';
 
 class Summary extends StatelessWidget {
-  const Summary({Key? key}) : super(key: key);
+  Summary({Key? key}) : super(key: key);
   final pageTitle = 'Summary';
+  final content = pageContent("summary");
 
   @override
   Widget build(context) {
-    EdgeInsets textPadding = EdgeInsets.fromLTRB(30, 10, 30, 10);
-
     return ListView(
       children: [
         Center(
@@ -21,9 +21,7 @@ class Summary extends StatelessWidget {
         Container(
           padding: textPadding,
           alignment: Alignment.topLeft,
-          child: Text(
-              "A general summary of my skills and experience."
-          ),
+          child: Text(content),
         ),
       ],
     );
