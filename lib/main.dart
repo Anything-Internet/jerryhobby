@@ -58,6 +58,9 @@ class MyAppState extends State<MyApp> {
   Widget download = Download();
   Widget skills = Skills();
 
+  late double screenWidth;
+  late double screenHeight;
+
   late Widget currentPage;
 
   MyAppState() {
@@ -71,111 +74,150 @@ class MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: drawer(),
+    screenWidth = MediaQuery.of(context).size.width;
+    screenHeight = MediaQuery.of(context).size.height;
+    bool screenNarrow = screenWidth < 600;
+
+    Scaffold wideScaffold = Scaffold(
+      //drawer: drawer(),
       backgroundColor: Colors.white,
       appBar: appBar(),
-      body: Container(
-          padding: EdgeInsets.fromLTRB(0, 20, 0, 0), child: currentPage),
-    );
-  }
-
-  drawer() {
-    return Drawer(
-      width: 130,
-      child: ListView(
+      body: Row(
         children: [
-          DrawerHeader(
-            padding: EdgeInsets.fromLTRB(0, 30.0, 0, 0),
-            margin: EdgeInsets.zero,
-            child: Image(image: AssetImage('assets/images/jerrytoon.png')),
-            decoration: BoxDecoration(
-              color: Colors.indigo[200],
-            ),
-          ),
-          ListTile(
-            title: Text('Home'),
-            onTap: () {
-              setState(() {
-                currentPage = home;
-              });
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            title: Text('Contact'),
-            onTap: () {
-              setState(() {
-                currentPage = contact;
-              });
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            title: Text('Objectives'),
-            onTap: () {
-              setState(() {
-                currentPage = objectives;
-              });
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            title: Text('Summary'),
-            onTap: () {
-              setState(() {
-                currentPage = summary;
-              });
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            title: Text('Skills'),
-            onTap: () {
-              setState(() {
-                currentPage = skills;
-              });
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            title: Text('Experience'),
-            onTap: () {
-              setState(() {
-                currentPage = experience;
-              });
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            title: Text('Education'),
-            onTap: () {
-              setState(() {
-                currentPage = education;
-              });
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            title: Text('Projects'),
-            onTap: () {
-              setState(() {
-                currentPage = projects;
-              });
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            title: Text('Download'),
-            onTap: () {
-              setState(() {
-                currentPage = download;
-              });
-              Navigator.pop(context);
-            },
+          Container(width: 130, child: Container(child: drawer(screenNarrow))),
+          Expanded(
+            child: currentPage,
           ),
         ],
       ),
+    );
+
+    Scaffold narrowScaffold = Scaffold(
+      drawer: Drawer(width: 130, child: drawer(screenNarrow)),
+      backgroundColor: Colors.white,
+      appBar: appBar(),
+      body: Container(
+        child: currentPage,
+      ),
+    );
+
+    return screenNarrow ? narrowScaffold : wideScaffold;
+  }
+
+  drawer(screenNarrow) {
+    Color? tileColor = Colors.indigo[50];
+    Color? hoverColor = Colors.indigo[100];
+
+    return ListView(
+      children: [
+        DrawerHeader(
+          padding: EdgeInsets.fromLTRB(0, 30.0, 0, 0),
+          margin: EdgeInsets.zero,
+          child: Image(image: AssetImage('assets/images/jerrytoon.png')),
+          decoration: BoxDecoration(
+            color: Colors.indigo[200],
+          ),
+        ),
+        ListTile(
+          title: Text('Home'),
+          tileColor: tileColor,
+          hoverColor: hoverColor,
+          onTap: () {
+            setState(() {
+              currentPage = home;
+            });
+            if (screenNarrow) Navigator.pop(context);
+          },
+        ),
+        ListTile(
+          title: Text('Contact'),
+          tileColor: tileColor,
+          hoverColor: hoverColor,
+          onTap: () {
+            setState(() {
+              currentPage = contact;
+            });
+            if (screenNarrow) Navigator.pop(context);
+          },
+        ),
+        ListTile(
+          title: Text('Objectives'),
+          tileColor: tileColor,
+          hoverColor: hoverColor,
+          onTap: () {
+            setState(() {
+              currentPage = objectives;
+            });
+            if (screenNarrow) Navigator.pop(context);
+          },
+        ),
+        ListTile(
+          title: Text('Summary'),
+          tileColor: tileColor,
+          hoverColor: hoverColor,
+          onTap: () {
+            setState(() {
+              currentPage = summary;
+            });
+            if (screenNarrow) Navigator.pop(context);
+          },
+        ),
+        ListTile(
+          title: Text('Skills'),
+          tileColor: tileColor,
+          hoverColor: hoverColor,
+          onTap: () {
+            setState(() {
+              currentPage = skills;
+            });
+            if (screenNarrow) Navigator.pop(context);
+          },
+        ),
+        ListTile(
+          title: Text('Experience'),
+          tileColor: tileColor,
+          hoverColor: hoverColor,
+          onTap: () {
+            setState(() {
+              currentPage = experience;
+            });
+            if (screenNarrow) Navigator.pop(context);
+          },
+        ),
+        ListTile(
+          title: Text('Education'),
+          tileColor: tileColor,
+          hoverColor: hoverColor,
+          onTap: () {
+            setState(() {
+              currentPage = education;
+            });
+            if (screenNarrow) Navigator.pop(context);
+          },
+        ),
+        ListTile(
+          title: Text('Projects'),
+          tileColor: tileColor,
+          hoverColor: hoverColor,
+          onTap: () {
+            setState(() {
+              currentPage = projects;
+            });
+            if (screenNarrow) Navigator.pop(context);
+          },
+        ),
+        ListTile(
+          title: Text('Download'),
+          tileColor: tileColor,
+          hoverColor: hoverColor,
+          onTap: () {
+            setState(() {
+              currentPage = download;
+            });
+            if (screenNarrow) Navigator.pop(context);
+          },
+        ),
+      ],
     );
   }
 
@@ -189,16 +231,15 @@ class MyAppState extends State<MyApp> {
         children: [
           SelectableText(
             'Jerry Hobby',
-
             style: GoogleFonts.roboto(
               color: Colors.white,
               textStyle: Theme.of(context).textTheme.headlineSmall,
             ),
           ),
-        Image(
-            image: AssetImage('assets/images/jerrytoonright.png'),
-            height: 50,
-            width: 50),
+          Image(
+              image: AssetImage('assets/images/jerrytoonright.png'),
+              height: 50,
+              width: 50),
         ],
       ),
     );
