@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'components/app_utils.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
 
 class Experience extends StatefulWidget {
   Experience({Key? key}) : super(key: key);
@@ -41,11 +40,11 @@ class ExperienceState extends State<Experience> {
             style: Theme.of(context).textTheme.headlineMedium,
           ),
         ),
-        horizontalDivider(),
+        Divider(),
         Container(
           padding: textPadding,
           alignment: Alignment.topLeft,
-          child: MarkdownBody(selectable: true, data: content),
+          child: markDown(content)
         ),
       ],
     );

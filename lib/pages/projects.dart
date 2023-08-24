@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'components/app_utils.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
 import 'site_items.dart';
 
 class Projects extends StatefulWidget {
@@ -43,9 +41,9 @@ class ProjectsState extends State<Projects> {
         Container(
           padding: textPadding,
           alignment: Alignment.topLeft,
-          child: MarkdownBody(selectable: true, data: content),
+          child: markDown(content),
         ),
-        horizontalDivider(),
+        Divider(),
         Expanded(
           child: siteRows(),
         ),
@@ -80,7 +78,7 @@ class ProjectsState extends State<Projects> {
             subtitle: item.buildDescription(context),
             leading: item.buildImage(context),
             onTap: () {
-              _launchURLBrowser(item.url);
+              launchURLBrowser(item.url);
             },
           ),
           );
@@ -89,12 +87,5 @@ class ProjectsState extends State<Projects> {
   }
 }
 
-_launchURLBrowser(url) async {
-  Uri uri = Uri.parse(url);
-  if (await canLaunchUrl(uri)) {
-    await launchUrl(uri);
-  } else {
-    throw 'Could not launch $url';
-  }
-}
+
 

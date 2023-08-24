@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'components/app_utils.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
 
 class Education extends StatefulWidget {
   Education({Key? key}) : super(key: key);
@@ -40,11 +39,11 @@ class EducationState extends State<Education> {
             style: Theme.of(context).textTheme.headlineMedium,
           ),
         ),
-        horizontalDivider(),
+        Divider(),
         Container(
           padding: textPadding,
           alignment: Alignment.topLeft,
-          child: MarkdownBody(selectable: true, data: content),
+          child: markDown(content),
         ),
       ],
     );

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'components/app_utils.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
 
 class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
@@ -42,13 +41,13 @@ class HomeState extends State<Home> {
             style: Theme.of(context).textTheme.headlineMedium,
           ),
         ),
-        horizontalDivider(),
+        Divider(),
         Container(
           padding: textPadding,
           alignment: Alignment.topLeft,
-          child: MarkdownBody(selectable: true, data: content),
+          child: markDown(content),
         ),
-        horizontalDivider(),
+        Divider(),
         Container(
           child: SelectableText(
             'Scan the QR code to open \n'

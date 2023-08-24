@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:jerry_hobby/pages/components/theme.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'pages/home.dart';
 import 'pages/projects.dart';
 import 'pages/summary.dart';
@@ -13,46 +14,7 @@ import 'pages/skills.dart';
 
 void main() {
   runApp(MaterialApp(
-    theme: ThemeData(
-      // Define the default font family.
-      fontFamily: 'Hind',
-      primaryColor: Colors.blueGrey[900],
-      cardColor: Colors.white,
-
-      //canvasColor: Colors.white,
-      // dialogBackgroundColor: Colors.white,
-      // disabledColor: Colors.white,
-      // focusColor: Colors.white,
-      // highlightColor: Colors.white,
-      // hintColor: Colors.white,
-      // hoverColor: Colors.white,
-      // indicatorColor: Colors.white,
-      // primaryColorLight: Colors.white,
-      // scaffoldBackgroundColor: Colors.white,
-      // secondaryHeaderColor: Colors.white,
-      // shadowColor: Colors.white,
-      // splashColor: Colors.white,
-
-
-
-
-
-
-      // Define the default `TextTheme`. Use this to specify the default
-      // text styling for headlines, titles, bodies of text, and more.
-
-      textTheme: const TextTheme(
-        headlineSmall: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        displayLarge: TextStyle(fontSize: 72, fontWeight: FontWeight.bold),
-        titleLarge: TextStyle(
-            fontSize: 36,
-            fontWeight: FontWeight.bold,
-            fontStyle: FontStyle.normal),
-        bodyMedium: TextStyle(fontSize: 18, fontFamily: 'Hind'),
-        bodySmall: TextStyle(fontSize: 14, fontFamily: 'Hind'),
-
-      ),
-    ),
+    theme: appTheme(),
     debugShowCheckedModeBanner: false,
     title: 'Jerry Hobby',
     home: MyApp(),
@@ -110,9 +72,10 @@ class MyAppState extends State<MyApp> {
     Scaffold wideScaffold = Scaffold(
       backgroundColor: Colors.white,
       appBar: appBar(),
+      bottomNavigationBar: bottomNavigationBar(),
       body: Row(
         children: [
-          Container(width: 130, child: Container(child: drawer(screenNarrow))),
+          Container(width: 150, child: Container(child: drawer(screenNarrow))),
           Expanded(
             child: currentPage,
           ),
@@ -124,10 +87,11 @@ class MyAppState extends State<MyApp> {
       drawer: Drawer(
           surfaceTintColor: Colors.white,
           backgroundColor: Colors.indigo[50],
-          width: 130,
+          width: 150,
           child: drawer(screenNarrow)),
       backgroundColor: Colors.white,
       appBar: appBar(),
+      bottomNavigationBar: bottomNavigationBar(),
       body: Container(
         child: currentPage,
       ),
@@ -143,9 +107,11 @@ class MyAppState extends State<MyApp> {
     return ListView(
       children: [
         DrawerHeader(
-          padding: EdgeInsets.fromLTRB(0, 30.0, 0, 0),
+          padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
           margin: EdgeInsets.zero,
-          child: Image(image: AssetImage('assets/images/jerrytoon.png')),
+          child: Image(
+              fit: BoxFit.fill,
+              image: AssetImage('assets/images/jerrytoon.png')),
           decoration: BoxDecoration(
             color: Colors.indigo[200],
           ),
@@ -268,13 +234,47 @@ class MyAppState extends State<MyApp> {
               textStyle: Theme.of(context).textTheme.headlineSmall,
             ),
           ),
-          Image(
-              image: AssetImage('assets/images/jerrytoonright.png'),
-              height: 50,
-              width: 50),
+          Icon(
+            Symbols.flutter,
+            color: Colors.cyan[100],
+            size: 32.0,
+            semanticLabel: 'Flutter Icon',
+          ),
         ],
       ),
     );
     // return
+  }
+
+  bottomNavigationBar() {
+    return Container(
+      height: 30,
+      color: Colors.indigo[900],
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+            child: Text(
+              '© 2023 and beyond, Jerry Hobby',
+              style: GoogleFonts.roboto(
+                color: Colors.white,
+                textStyle: Theme.of(context).textTheme.bodySmall,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+            child: Text(
+              'Built with Flutter/Dart',
+              style: GoogleFonts.roboto(
+                color: Colors.white,
+                textStyle: Theme.of(context).textTheme.bodySmall,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

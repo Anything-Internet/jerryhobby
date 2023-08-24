@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'components/app_utils.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
 
 class Download extends StatefulWidget {
   Download({Key? key}) : super(key: key);
@@ -16,22 +15,25 @@ class DownloadState extends State<Download> {
   final pageTitle = 'Download';
   late String content = "loading...";
   late EdgeInsets textPadding = EdgeInsets.fromLTRB(30, 10, 30, 0);
+  bool _isLoading = true;
 
   loadAsset(fileName) async {
-    return rootBundle.loadString("assets/content/$fileName");
-  }
+    content = await rootBundle.loadString("assets/content/$fileName");
 
-  DownloadState() {
-    loadAsset("download.md").then((value) {
-      setState(() {
-        content = value;
-      });
+    setState(() {
+      _isLoading = false;
     });
   }
 
   @override
+  void initState() {
+    super.initState();
+    loadAsset("download.md");
+  }
+
+  @override
   Widget build(context) {
-    return ListView(
+    return Column(
       children: [
         Center(
           child: SelectableText(
@@ -39,11 +41,21 @@ class DownloadState extends State<Download> {
             style: Theme.of(context).textTheme.headlineMedium,
           ),
         ),
-        horizontalDivider(),
+        Divider(),
         Container(
           padding: textPadding,
           alignment: Alignment.topLeft,
-          child: MarkdownBody(selectable: true, data: content),
+          child: markDown(content),
+        ),
+        Container(
+          padding: textPadding,
+          alignment: Alignment.topLeft,
+          child: TextButton(
+              child: Text("Business Analyst Resume"),
+              onPressed: () {
+                launchURLBrowser(
+                    "https://JerryHobby.com/resumes/Jerry_Hobby_Senior_Business_Analyst_Resume.pdf");
+              }),
         ),
       ],
     );
