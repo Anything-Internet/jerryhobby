@@ -15,8 +15,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  url_launcher: ^6.0.9
+  url_launcher:
   google_fonts:
+  flutter_markdown:
 
 
 
@@ -44,6 +45,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/content/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

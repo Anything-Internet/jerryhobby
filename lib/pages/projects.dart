@@ -1,13 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:mi_card/pages/site_items.dart';
+import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import 'components/app_utils.dart';
-import 'page_content.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
+import 'site_items.dart';
 
-class Projects extends StatelessWidget {
+class Projects extends StatefulWidget {
   Projects({Key? key}) : super(key: key);
-  final String content = pageContent("projects");
+
+  @override
+  State<StatefulWidget> createState() {
+    return ProjectsState();
+  }
+}
+
+class ProjectsState extends State<Projects> {
+  final pageTitle = 'Projects';
+
+  late String content = "loading...";
+  late EdgeInsets textPadding = EdgeInsets.fromLTRB(30, 10, 30, 0);
+
+  loadAsset(fileName) async {
+    return rootBundle.loadString("assets/content/$fileName");
+  }
+
+  ProjectsState() {
+    loadAsset("projects.md").then((value) {
+      setState(() {
+        content = value;
+      });
+    });
+  }
 
   @override
   Widget build(context) {
@@ -20,7 +43,7 @@ class Projects extends StatelessWidget {
         Container(
           padding: textPadding,
           alignment: Alignment.topLeft,
-          child: SelectableText(content),
+          child: MarkdownBody(selectable: true, data: content),
         ),
         horizontalDivider(),
         Expanded(

@@ -1,13 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'components/app_utils.dart';
-import 'page_content.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 
-class Home extends StatelessWidget {
-  Home({Key? key}) : super(key: key) {
-    print("Home: constructor");
+class Home extends StatefulWidget {
+  Home({Key? key}) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() {
+    return HomeState();
   }
+}
+
+class HomeState extends State<Home> {
   final pageTitle = 'Introducing Jerry';
-  final content = pageContent("home");
+
+  late String content = "loading...";
+  late EdgeInsets textPadding = EdgeInsets.fromLTRB(30, 10, 30, 0);
+
+  loadAsset(fileName) async {
+    return rootBundle.loadString("assets/content/$fileName");
+  }
+
+  HomeState() {
+    loadAsset("home.md").then((value) {
+      setState(() {
+        content = value;
+      });
+    });
+  }
 
   @override
   Widget build(context) {
@@ -25,7 +46,7 @@ class Home extends StatelessWidget {
         Container(
           padding: textPadding,
           alignment: Alignment.topLeft,
-          child: SelectableText(content),
+          child: MarkdownBody(selectable: true, data: content),
         ),
         horizontalDivider(),
         Container(

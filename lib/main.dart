@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'pages/home.dart';
 import 'pages/projects.dart';
 import 'pages/summary.dart';
@@ -13,12 +14,29 @@ import 'pages/skills.dart';
 void main() {
   runApp(MaterialApp(
     theme: ThemeData(
-      // Define the default brightness and colors.
-      //brightness: Brightness.dark,
-
       // Define the default font family.
       fontFamily: 'Hind',
       primaryColor: Colors.blueGrey[900],
+      cardColor: Colors.white,
+
+      //canvasColor: Colors.white,
+      // dialogBackgroundColor: Colors.white,
+      // disabledColor: Colors.white,
+      // focusColor: Colors.white,
+      // highlightColor: Colors.white,
+      // hintColor: Colors.white,
+      // hoverColor: Colors.white,
+      // indicatorColor: Colors.white,
+      // primaryColorLight: Colors.white,
+      // scaffoldBackgroundColor: Colors.white,
+      // secondaryHeaderColor: Colors.white,
+      // shadowColor: Colors.white,
+      // splashColor: Colors.white,
+
+
+
+
+
 
       // Define the default `TextTheme`. Use this to specify the default
       // text styling for headlines, titles, bodies of text, and more.
@@ -32,6 +50,7 @@ void main() {
             fontStyle: FontStyle.normal),
         bodyMedium: TextStyle(fontSize: 18, fontFamily: 'Hind'),
         bodySmall: TextStyle(fontSize: 14, fontFamily: 'Hind'),
+
       ),
     ),
     debugShowCheckedModeBanner: false,
@@ -48,15 +67,15 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
-  Widget home = Home();
-  Widget summary = Summary();
-  Widget contact = Contact();
-  Widget objectives = Objectives();
-  Widget experience = Experience();
-  Widget education = Education();
-  Widget projects = Projects();
-  Widget download = Download();
-  Widget skills = Skills();
+  late Widget home;
+  late Widget summary;
+  late Widget contact;
+  late Widget objectives;
+  late Widget experience;
+  late Widget education;
+  late Widget projects;
+  late Widget download;
+  late Widget skills;
 
   late double screenWidth;
   late double screenHeight;
@@ -64,6 +83,16 @@ class MyAppState extends State<MyApp> {
   late Widget currentPage;
 
   MyAppState() {
+    home = Home();
+    summary = Summary();
+    contact = Contact();
+    objectives = Objectives();
+    experience = Experience();
+    education = Education();
+    projects = Projects();
+    download = Download();
+    skills = Skills();
+
     currentPage = home;
   }
 
@@ -79,7 +108,6 @@ class MyAppState extends State<MyApp> {
     bool screenNarrow = screenWidth < 600;
 
     Scaffold wideScaffold = Scaffold(
-      //drawer: drawer(),
       backgroundColor: Colors.white,
       appBar: appBar(),
       body: Row(
