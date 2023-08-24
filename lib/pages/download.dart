@@ -15,13 +15,13 @@ class DownloadState extends State<Download> {
   final pageTitle = 'Download';
   late String content = "loading...";
   late EdgeInsets textPadding = EdgeInsets.fromLTRB(30, 10, 30, 0);
-  bool _isLoading = true;
+  //bool _isLoading = true;
 
   loadAsset(fileName) async {
     content = await rootBundle.loadString("assets/content/$fileName");
 
     setState(() {
-      _isLoading = false;
+      //_isLoading = false;
     });
   }
 
