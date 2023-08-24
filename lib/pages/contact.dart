@@ -45,6 +45,11 @@ class ContactState extends State<Contact> {
           alignment: Alignment.topLeft,
           child: markDown(content),
         ),
+        // TextButton(
+        //     child: Text("Email Jerry@JerryHobby.com"),
+        //     onPressed: () {
+        //       sendMail();
+        //     }),
       ],
     );
   }
