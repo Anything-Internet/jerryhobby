@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:jerry_hobby/pages/components/theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 sendMail() async {
@@ -30,15 +30,7 @@ launchURLBrowser(url) async {
 
 markDown(String content) {
   return MarkdownBody(
-      styleSheet: MarkdownStyleSheet(
-        horizontalRuleDecoration: ShapeDecoration(
-          color: Colors.black,
-          shape: Border.all(
-            color: Colors.black,
-            width: 0.2,
-          ),
-        ),
-      ),
+      styleSheet: markDownStyleSheet(),
       selectable: true,
       data: content);
 }

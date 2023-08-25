@@ -101,9 +101,6 @@ class MyAppState extends State<MyApp> {
   }
 
   drawer(screenNarrow) {
-    Color? tileColor = Colors.indigo[50];
-    Color? hoverColor = Colors.indigo[100];
-
     return ListView(
       children: [
         DrawerHeader(
@@ -116,106 +113,33 @@ class MyAppState extends State<MyApp> {
             color: Colors.indigo[200],
           ),
         ),
-        ListTile(
-          title: Text('Home'),
-          tileColor: tileColor,
-          hoverColor: hoverColor,
-          onTap: () {
-            setState(() {
-              currentPage = home;
-            });
-            if (screenNarrow) Navigator.pop(context);
-          },
-        ),
-        ListTile(
-          title: Text('Contact'),
-          tileColor: tileColor,
-          hoverColor: hoverColor,
-          onTap: () {
-            setState(() {
-              currentPage = contact;
-            });
-            if (screenNarrow) Navigator.pop(context);
-          },
-        ),
-        ListTile(
-          title: Text('Objectives'),
-          tileColor: tileColor,
-          hoverColor: hoverColor,
-          onTap: () {
-            setState(() {
-              currentPage = objectives;
-            });
-            if (screenNarrow) Navigator.pop(context);
-          },
-        ),
-        ListTile(
-          title: Text('Summary'),
-          tileColor: tileColor,
-          hoverColor: hoverColor,
-          onTap: () {
-            setState(() {
-              currentPage = summary;
-            });
-            if (screenNarrow) Navigator.pop(context);
-          },
-        ),
-        ListTile(
-          title: Text('Skills'),
-          tileColor: tileColor,
-          hoverColor: hoverColor,
-          onTap: () {
-            setState(() {
-              currentPage = skills;
-            });
-            if (screenNarrow) Navigator.pop(context);
-          },
-        ),
-        ListTile(
-          title: Text('Experience'),
-          tileColor: tileColor,
-          hoverColor: hoverColor,
-          onTap: () {
-            setState(() {
-              currentPage = experience;
-            });
-            if (screenNarrow) Navigator.pop(context);
-          },
-        ),
-        ListTile(
-          title: Text('Education'),
-          tileColor: tileColor,
-          hoverColor: hoverColor,
-          onTap: () {
-            setState(() {
-              currentPage = education;
-            });
-            if (screenNarrow) Navigator.pop(context);
-          },
-        ),
-        ListTile(
-          title: Text('Projects'),
-          tileColor: tileColor,
-          hoverColor: hoverColor,
-          onTap: () {
-            setState(() {
-              currentPage = projects;
-            });
-            if (screenNarrow) Navigator.pop(context);
-          },
-        ),
-        ListTile(
-          title: Text('Download'),
-          tileColor: tileColor,
-          hoverColor: hoverColor,
-          onTap: () {
-            setState(() {
-              currentPage = download;
-            });
-            if (screenNarrow) Navigator.pop(context);
-          },
-        ),
+        menuItem(screenNarrow, "Home", home),
+        menuItem(screenNarrow, "Contact", contact),
+        menuItem(screenNarrow, "Objectives", objectives),
+        menuItem(screenNarrow, "Summary", summary),
+        menuItem(screenNarrow, "Skills", skills),
+        menuItem(screenNarrow, "Experience", experience),
+        menuItem(screenNarrow, "Education", education),
+        menuItem(screenNarrow, "Projects", projects),
+        menuItem(screenNarrow, "Download", download),
       ],
+    );
+  }
+
+  menuItem(bool screenNarrow, String title, Widget page) {
+    Color? tileColor = Colors.indigo[50];
+    Color? hoverColor = Colors.indigo[100];
+
+    return ListTile(
+      title: Text(title),
+      tileColor: tileColor,
+      hoverColor: hoverColor,
+      onTap: () {
+        setState(() {
+          currentPage = page;
+        });
+        if (screenNarrow) Navigator.pop(context);
+      },
     );
   }
 

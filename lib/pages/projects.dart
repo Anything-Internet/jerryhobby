@@ -38,12 +38,12 @@ class ProjectsState extends State<Projects> {
           'Current Projects',
           style: Theme.of(context).textTheme.headlineMedium,
         ),
+        Divider(),
         Container(
           padding: textPadding,
           alignment: Alignment.topLeft,
           child: markDown(content),
         ),
-        Divider(),
         Expanded(
           child: siteRows(),
         ),
@@ -53,25 +53,23 @@ class ProjectsState extends State<Projects> {
 
   siteRows() {
     return ListView.separated(
-        separatorBuilder: (context, index) => Container(
-              height: 10,
-        ),
+      separatorBuilder: (context, index) => Container(
+        height: 10,
+      ),
 
-        padding: EdgeInsets.fromLTRB(20, 0, 20, 10),
-        // Let the ListView know how many items it needs to build.
-        itemCount: sites.length,
-        // Provide a builder function. This is where the magic happens.
-        // Convert each item into a widget based on the type of item it is.
-        itemBuilder: (context, index) {
-          final item = sites[index];
+      padding: EdgeInsets.fromLTRB(33, 0, 33, 10),
+      // Let the ListView know how many items it needs to build.
+      itemCount: sites.length,
+      // Provide a builder function. This is where the magic happens.
+      // Convert each item into a widget based on the type of item it is.
+      itemBuilder: (context, index) {
+        final item = sites[index];
 
-          return Material(
-            elevation: 3,
-          child:
-            ListTile(
-              tileColor: Colors.white,
+        return Material(
+          elevation: 3,
+          child: ListTile(
+            tileColor: Colors.white,
             minLeadingWidth: 90,
-
             visualDensity: VisualDensity.comfortable,
             titleTextStyle: Theme.of(context).textTheme.headlineSmall,
             title: item.buildTitle(context),
@@ -81,11 +79,8 @@ class ProjectsState extends State<Projects> {
               launchURLBrowser(item.url);
             },
           ),
-          );
-        },
-      );
+        );
+      },
+    );
   }
 }
-
-
-
