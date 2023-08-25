@@ -45,11 +45,23 @@ class ContactState extends State<Contact> {
           alignment: Alignment.topLeft,
           child: markDown(content),
         ),
-        // TextButton(
-        //     child: Text("Email Jerry@JerryHobby.com"),
-        //     onPressed: () {
-        //       sendMail();
-        //     }),
+        Container(
+          padding: textPadding,
+          alignment: Alignment.topLeft,
+          child: TextButton(
+              child: Text("Email Jerry@JerryHobby.com"),
+              onPressed: () {
+                launchURLBrowser("mailto:Jerry@JerryHobby.com");
+              }),
+        ),
+        Container(
+          padding: textPadding,
+          alignment: Alignment.topLeft,
+          child: Text(
+            "This button is not working on the web version of this app.",
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+        ),
       ],
     );
   }
