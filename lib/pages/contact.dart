@@ -54,14 +54,6 @@ class ContactState extends State<Contact> {
                 launchURLBrowser("mailto:Jerry@JerryHobby.com");
               }),
         ),
-        Container(
-          padding: textPadding,
-          alignment: Alignment.topLeft,
-          child: Text(
-            "This button is not working on the web version of this app.",
-            style: Theme.of(context).textTheme.bodySmall,
-          ),
-        ),
       ],
     );
   }
