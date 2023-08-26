@@ -1,3 +1,2 @@
-If you'd like to reach me, please send an email to:
+If you'd like to reach me ...
 
-Jerry@JerryHobby.com

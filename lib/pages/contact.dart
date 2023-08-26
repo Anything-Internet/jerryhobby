@@ -31,6 +31,14 @@ class ContactState extends State<Contact> {
 
   @override
   Widget build(context) {
+    var textButtonTheme = TextButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
+        foregroundColor: MaterialStateProperty.all<Color>(Colors.blue.shade700),
+        side: MaterialStateProperty.all<BorderSide>(BorderSide.none),
+      ),
+    );
+
     return ListView(
       children: [
         Center(
@@ -48,11 +56,46 @@ class ContactState extends State<Contact> {
         Container(
           padding: textPadding,
           alignment: Alignment.topLeft,
-          child: TextButton(
-              child: Text("Email Jerry@JerryHobby.com"),
-              onPressed: () {
-                launchURLBrowser("mailto:Jerry@JerryHobby.com");
-              }),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              TextButton(
+                  style: textButtonTheme.style,
+                  child: Text("Email: Jerry@JerryHobby.com"),
+                  onPressed: () {
+                    launchURLBrowser("mailto:Jerry@JerryHobby.com");
+                  }),
+              TextButton(
+                  style: textButtonTheme.style,
+                  child: Text("Website: https://www.JerryHobby.com"),
+                  onPressed: () {
+                    launchURLBrowser("https://www.JerryHobby.com");
+                  }),
+              TextButton(
+                  style: textButtonTheme.style,
+                  child: Text("Facebook: https://www.facebook.com/JerryHobby"),
+                  onPressed: () {
+                    launchURLBrowser("https://www.facebook.com/JerryHobby");
+                  }),
+              TextButton(
+                style: textButtonTheme.style,
+                child: Text("GitHub Profile:  https://github.com/JerryHobby"),
+                onPressed: () {
+                  launchURLBrowser("https://github.com/JerryHobby");
+                },
+              ),
+              TextButton(
+                style: textButtonTheme.style,
+                child: Text(
+                    "GitHub Repositories: https://github.com/orgs/Anything-Internet/repositories"),
+                onPressed: () {
+                  launchURLBrowser(
+                      "https://github.com/orgs/Anything-Internet/repositories");
+                },
+              ),
+            ],
+          ),
         ),
       ],
     );
