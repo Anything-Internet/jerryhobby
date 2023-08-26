@@ -2,6 +2,16 @@ import 'package:flutter/material.dart';
 
 final List<SiteItem> sites = [
   SiteItem(
+      'Quizzler',
+      AssetImage('assets/images/quizzler.png'),
+      '''
+Quizzler is a simple quiz app for Android and iOS. It is written in Flutter/Dart.
+
+It has 100 questions.  It keeps track of your score.
+''',
+      'https://jerryhobby.com/quizzler/'),
+
+  SiteItem(
       'Xylophone',
       AssetImage('assets/images/xylophone.png'),
       '''
