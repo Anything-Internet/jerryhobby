@@ -2,6 +2,14 @@ import 'package:flutter/material.dart';
 
 final List<SiteItem> sites = [
   SiteItem(
+      'Xylophone',
+      AssetImage('assets/images/xylophone.png'),
+      '''
+Xylophone is a simple app for Web, Mac, Android and iOS. It is written in Flutter/Dart.
+''',
+      'https://jerryhobby.com/xylophone/'),
+
+  SiteItem(
       'Chess Trainer',
       AssetImage('assets/images/chesstrainer.png'),
       '''
