@@ -103,10 +103,9 @@ class ProjectsState extends State<Projects> {
                         indent: 0,
                         endIndent: 0,
                       ),
-                      Text(
-                          item.description,
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
+
+                          item.buildDescription(context),
+
                       item.url != '' ? SizedBox.shrink()
                           : SizedBox(
                         width: 300,
