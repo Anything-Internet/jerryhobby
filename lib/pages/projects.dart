@@ -34,7 +34,7 @@ class ProjectsState extends State<Projects> {
   Widget build(context) {
     return Column(
       children: [
-        SelectableText(
+        Text(
           'Current Projects',
           style: Theme.of(context).textTheme.headlineMedium,
         ),
@@ -65,21 +65,88 @@ class ProjectsState extends State<Projects> {
       itemBuilder: (context, index) {
         final item = sites[index];
 
-        return Material(
-          elevation: 3,
-          child: ListTile(
-            tileColor: Colors.white,
-            minLeadingWidth: 90,
-            visualDensity: VisualDensity.comfortable,
-            titleTextStyle: Theme.of(context).textTheme.headlineSmall,
-            title: item.buildTitle(context),
-            subtitle: item.buildDescription(context),
-            leading: item.buildImage(context),
-            onTap: () {
-              launchURLBrowser(item.url);
-            },
+        return SelectionArea(
+          child: Container(
+            padding: EdgeInsets.fromLTRB(5, 0, 5, 10),
+            margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(.5),
+                  blurRadius: 10,
+                  offset: Offset(0, 5),
+                ),
+              ],
+            ),
+
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: 130,
+                  alignment: Alignment.topCenter,
+                  padding: EdgeInsets.fromLTRB(0, 18, 20, 20),
+                  child: item.buildImage(context),
+                ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        item.title,
+                        style: Theme.of(context).textTheme.headlineMedium,
+                      ),
+                      Divider(
+                        indent: 0,
+                        endIndent: 0,
+                      ),
+                      Text(
+                          item.description,
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+                      item.url != '' ? SizedBox.shrink()
+                          : SizedBox(
+                        width: 300,
+                          child: item.buildImage(context),
+                      ),
+                      InkWell(
+                        onTap: () {
+                          launchURLBrowser(item.url);
+                        },
+                        child: Text(
+                          item.url,
+                          style: TextStyle(
+                            color: Colors.blue,
+                            decoration: TextDecoration.underline,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         );
+
+        // return Material(
+        //   elevation: 3,
+        //   child: ListTile(
+        //     tileColor: Colors.white,
+        //     minLeadingWidth: 90,
+        //     //visualDensity: VisualDensity.compact,
+        //     titleTextStyle: Theme.of(context).textTheme.headlineSmall,
+        //     title: item.buildTitle(context),
+        //     subtitle: item.buildDescription(context),
+        //     leading: item.buildImage(context),
+        //     onTap: () {
+        //       launchURLBrowser(item.url);
+        //     },
+        //   ),
+        // );
       },
     );
   }

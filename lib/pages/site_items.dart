@@ -1,6 +1,47 @@
 import 'package:flutter/material.dart';
 
+import 'components/app_utils.dart';
+
 final List<SiteItem> sites = [
+  SiteItem(
+      'Travel App Mock-up',
+      ExactAssetImage('assets/images/figma_travel_app.gif', scale: 2),
+      '''
+This is only a graphical mock-up of a travel app.  It is not functional. It was
+developed in Figma.  It shows the original wireframe, the design with content,
+and finally the design with colors and styles.  It is not a real app.
+''',
+      ''),
+  SiteItem(
+      'Clima Weather',
+      ExactAssetImage('assets/images/climademo.gif', scale: 2),
+      '''
+This is a weather app for Android and iOS. It is written in Flutter/Dart.
+It uses the OpenWeatherMap API to get the weather data.
+
+It does not work properly on the Web due to a bug in the Flutter module
+that determines GPS location.  It works fine on Android and iOS.
+''',
+      ''),
+  SiteItem(
+      'BMI Calculator',
+      AssetImage('assets/images/bmicalculator.png'),
+      '''
+Are you healthy?  This basic BMI calculator may provide some insights.  
+It is written in Flutter/Dart.  Weight in pounds and height in inches.
+''',
+      'https://jerryhobby.com/bmicalculator/'),
+  SiteItem(
+      'Destini',
+      AssetImage('assets/images/destini.png'),
+      '''
+A demo app of an interactive story.  It is written in Flutter/Dart.
+
+You make choices that impact the direction of the story.  It's only
+a demo app, so the story is very short. Perhaps someday I'll write 
+a longer story for it and add some graphics.
+''',
+      'https://jerryhobby.com/destini/'),
   SiteItem(
       'Quizzler',
       AssetImage('assets/images/quizzler.png'),
@@ -10,7 +51,6 @@ Quizzler is a simple quiz app for Android and iOS. It is written in Flutter/Dart
 It has 100 questions.  It keeps track of your score.
 ''',
       'https://jerryhobby.com/quizzler/'),
-
   SiteItem(
       'Xylophone',
       AssetImage('assets/images/xylophone.png'),
@@ -18,7 +58,6 @@ It has 100 questions.  It keeps track of your score.
 Xylophone is a simple app for Web, Mac, Android and iOS. It is written in Flutter/Dart.
 ''',
       'https://jerryhobby.com/xylophone/'),
-
   SiteItem(
       'Chess Trainer',
       AssetImage('assets/images/chesstrainer.png'),
@@ -31,7 +70,7 @@ I intend to tie it into StockFish and create sessions so that you can share your
   SiteItem(
       'Magic 8-Ball',
       AssetImage('assets/images/8ball.png'),
-'''
+      '''
 Magic 8-Ball is a simple app for Android and iOS. It is written in Flutter/Dart.  
 
 This is a basic beginner app based on the Magic 8-Ball toy.
@@ -59,7 +98,7 @@ This is barely functional at the moment.  The production version (not shown here
   SiteItem(
       "My Photos",
       AssetImage('assets/images/hobbyphotography.png'),
-'''
+      '''
 Just a basic photo album where I upload photos for my friends and family.
 
 It's a Piwigo photo album. This is not one of my development projects.
@@ -83,7 +122,7 @@ class HeadingItem implements ListItem {
 
   @override
   Widget buildTitle(BuildContext context) {
-    return SelectableText(
+    return Text(
       heading,
       style: Theme.of(context).textTheme.headlineSmall,
     );
@@ -96,7 +135,7 @@ class HeadingItem implements ListItem {
 class SiteItem implements ListItem {
   String title;
   HeadingItem heading = HeadingItem("Under Development");
-  AssetImage image;
+  ImageProvider image;
   String description;
   String url;
   SiteItem(this.title, this.image, this.description, this.url);
@@ -104,9 +143,20 @@ class SiteItem implements ListItem {
   @override
   Widget buildTitle(BuildContext context) => Text(title);
   @override
-  Widget buildDescription(BuildContext context) => Text(description);
+  Widget buildDescription(BuildContext context) => Text(description.trim());
 
-  Widget buildImage(BuildContext context) =>
-      Image(image: image, width: 80,);
-  Widget buildUrl(BuildContext context) => SelectableText(url);
+  Widget buildImage(BuildContext context) {
+    if (url == '') {
+      return Image(image: image);
+    } else {
+      return InkWell(
+          onTap: () {
+            launchURLBrowser(url);
+          },
+          child: Image(image: image),
+      );
+    }
+  }
+
+  Widget buildUrl(BuildContext context) => Text(url);
 }
