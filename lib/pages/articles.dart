@@ -15,7 +15,7 @@ class _ArticlesState extends State<Articles> {
   final mdContent = "articles.md";
 
   _ArticlesState() {
-    loadAsset(mdContent).then((value) {
+    loadAssetMarkdownContent(mdContent).then((value) {
       setState(() {
         content = value;
       });

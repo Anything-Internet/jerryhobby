@@ -15,7 +15,7 @@ class _HomeState extends State<Home> {
   late String content = "loading...";
 
   _HomeState() {
-    loadAsset("home.md").then((value) {
+    loadAssetMarkdownContent("home.md").then((value) {
       setState(() {
         content = value;
       });
@@ -41,7 +41,20 @@ class _HomeState extends State<Home> {
         Container(
           //padding: textPadding,
           alignment: Alignment.topLeft,
-          child: markDown(content),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(child: markDown(content),),
+
+              Image(
+                image: AssetImage('assets/images/jerry_hobby_headshot.png'),
+                width: 200,
+                height: 200,
+              ),
+            ],
+          ),
         ),
       ],
     );

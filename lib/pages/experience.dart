@@ -15,7 +15,7 @@ class _ExperienceState extends State<Experience> {
   final mdContent = "experience.md";
 
   _ExperienceState() {
-    loadAsset(mdContent).then((value) {
+    loadAssetMarkdownContent(mdContent).then((value) {
       setState(() {
         content = value;
       });

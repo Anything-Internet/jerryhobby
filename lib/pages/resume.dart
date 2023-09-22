@@ -15,7 +15,7 @@ class _ResumeState extends State<Resume> {
   final mdContent = "resume.md";
 
   _ResumeState() {
-    loadAsset(mdContent).then((value) {
+    loadAssetMarkdownContent(mdContent).then((value) {
       setState(() {
         content = value;
       });

@@ -15,7 +15,7 @@ class _ContactState extends State<Contact> {
   final mdContent = "contact.md";
 
   _ContactState() {
-    loadAsset(mdContent).then((value) {
+    loadAssetMarkdownContent(mdContent).then((value) {
       setState(() {
         content = value;
       });
@@ -42,6 +42,17 @@ class _ContactState extends State<Contact> {
           //padding: textPadding,
           alignment: Alignment.topLeft,
           child: markDown(content),
+        ),
+        const Divider(),
+        Container(
+          alignment: Alignment.topLeft,
+          child: TextButton(
+              child: Text("[Jerry@JerryHobby.com]",
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+              onPressed: () {
+                sendMail();
+              }),
         ),
       ],
     );

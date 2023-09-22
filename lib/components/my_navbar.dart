@@ -9,8 +9,8 @@ import '/pages/technical.dart';
 import '/pages/build_process.dart';
 import '/pages/home.dart';
 
-routes (BuildContext  context) {
-  return  <String, WidgetBuilder>{
+routes(BuildContext context) {
+  return <String, WidgetBuilder>{
     '/': (context) => const Home(),
     '/articles': (context) => const Articles(),
     '/leadership': (context) => const Leadership(),
@@ -23,28 +23,28 @@ routes (BuildContext  context) {
   };
 }
 
+final Map mainMenu = {
+  '/': 'Home',
+  '/articles': 'Articles',
+  '/leadership': 'Leadership',
+  '/technical': 'Technical',
+  '/experience': 'Experience',
+  '/projects': 'Projects',
+  '/resume': 'Resume',
+  '/contact': 'Contact',
+  // '/buildProcess': 'Build Process',
+};
 
 class MyNavBar extends StatelessWidget {
   MyNavBar({super.key});
 
-  final Map mainMenu = {
-    'Home': '/',
-    'Articles': '/articles',
-    'Leadership': '/leadership',
-    'Technical': '/technical',
-    'Experience': '/experience',
-    'Projects': '/projects',
-    'Resume': '/resume',
-    'Contact': '/contact',
-  };
-  
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(top: 0, bottom: 0),
       width: MediaQuery.of(context).size.width,
       alignment: Alignment.topLeft,
-      decoration:  BoxDecoration(
+      decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(
             width: 2,
@@ -67,7 +67,11 @@ class MyNavBar extends StatelessWidget {
     return navBarItems;
   }
 
-  navButton(BuildContext context, String text, String route) {
+  navButton(
+    BuildContext context,
+    String route,
+    String text,
+  ) {
     return TextButton(
       onPressed: () {
         Navigator.pushNamed(context, route);

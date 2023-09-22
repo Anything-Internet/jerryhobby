@@ -8,10 +8,6 @@ class Util {
   static late Function getThemeMode;
 }
 
-loadAsset(fileName) async {
-  return rootBundle.loadString("content/$fileName");
-}
-
 launchURLBrowser(var link) async {
   String linkUrl;
   Uri linkUri;
@@ -41,6 +37,10 @@ sendMail() async {
       path: 'Jerry@JerryHobby.com',
       queryParameters: {'subject': 'JerryHobby.com Inquiry'});
   await launchURLBrowser(uri);
+}
+
+loadAssetMarkdownContent(fileName) async {
+  return rootBundle.loadString("content/$fileName");
 }
 
 markDown(String content) {

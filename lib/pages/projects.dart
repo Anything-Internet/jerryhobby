@@ -16,7 +16,7 @@ class _ProjectsState extends State<Projects> {
   final mdContent = "projects.md";
 
   _ProjectsState() {
-    loadAsset(mdContent).then((value) {
+    loadAssetMarkdownContent(mdContent).then((value) {
       setState(() {
         content = value;
       });
@@ -58,7 +58,7 @@ siteRows(BuildContext context) {
       height: 10,
     ),
 
-    padding: const EdgeInsets.fromLTRB(33, 0, 33, 10),
+    padding: const EdgeInsets.fromLTRB(5, 0, 5, 10),
     // Let the ListView know how many items it needs to build.
     itemCount: sites.length,
     // Provide a builder function. This is where the magic happens.
@@ -73,6 +73,10 @@ siteRows(BuildContext context) {
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.background,
             borderRadius: BorderRadius.circular(10),
+            border: Border.all(
+              color: Theme.of(context).colorScheme.onPrimaryContainer,
+              width: 1,
+            ),
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.withOpacity(.5),

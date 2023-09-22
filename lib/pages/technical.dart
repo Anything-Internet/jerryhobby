@@ -15,7 +15,7 @@ class _TechnicalState extends State<Technical> {
   final mdContent = "technical.md";
 
   _TechnicalState() {
-    loadAsset(mdContent).then((value) {
+    loadAssetMarkdownContent(mdContent).then((value) {
       setState(() {
         content = value;
       });

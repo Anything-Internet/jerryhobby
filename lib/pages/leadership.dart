@@ -15,7 +15,7 @@ class _LeadershipState extends State<Leadership> {
   final mdContent = "leadership.md";
 
   _LeadershipState() {
-    loadAsset(mdContent).then((value) {
+    loadAssetMarkdownContent(mdContent).then((value) {
       setState(() {
         content = value;
       });

@@ -15,7 +15,7 @@ class _BuildProcessState extends State<BuildProcess> {
   final mdContent = "build_process.md";
 
   _BuildProcessState() {
-    loadAsset(mdContent).then((value) {
+    loadAssetMarkdownContent(mdContent).then((value) {
       setState(() {
         content = value;
       });
