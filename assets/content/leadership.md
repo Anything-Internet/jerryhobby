@@ -12,6 +12,7 @@
 * Linux Administration
 * Network Administration
 
+![skills](resource:images/experience/leadership_skills.png)
 
 
   

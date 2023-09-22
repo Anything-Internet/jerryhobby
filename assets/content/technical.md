@@ -15,3 +15,5 @@
 * Adobe Photoshop
 * Adobe Illustrator
 * Android Studio
+
+![skills](resource:images/experience/technical_skills.png)

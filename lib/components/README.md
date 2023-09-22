@@ -1,0 +1,1 @@
+This folder contains reusable visual components and containers.

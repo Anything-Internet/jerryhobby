@@ -1,28 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'components/app_utils.dart';
+import '../components/my_scaffold.dart';
+import '../util.dart';
 
 class Experience extends StatefulWidget {
-  Experience({Key? key}) : super(key: key);
+  const Experience({super.key});
 
   @override
-  State<StatefulWidget> createState() {
-    return ExperienceState();
-  }
+  State<Experience> createState() => _ExperienceState();
 }
 
-class ExperienceState extends State<Experience> {
+class _ExperienceState extends State<Experience> {
   final pageTitle = 'Experience';
-
   late String content = "loading...";
-  late EdgeInsets textPadding = EdgeInsets.fromLTRB(30, 10, 30, 0);
+  final mdContent = "experience.md";
 
-  loadAsset(fileName) async {
-    return rootBundle.loadString("assets/content/$fileName");
-  }
-
-  ExperienceState() {
-    loadAsset("experience.md").then((value) {
+  _ExperienceState() {
+    loadAsset(mdContent).then((value) {
       setState(() {
         content = value;
       });
@@ -30,21 +23,25 @@ class ExperienceState extends State<Experience> {
   }
 
   @override
-  Widget build(context) {
+  Widget build(BuildContext context) {
+    return myScaffold(context: context, body: body);
+  }
+
+  body() {
     return ListView(
       primary: false,
       children: [
         Center(
           child: SelectableText(
             pageTitle,
-            style: Theme.of(context).textTheme.headlineMedium,
+            style: Theme.of(context).textTheme.headlineLarge,
           ),
         ),
-        Divider(),
+        const Divider(),
         Container(
-          padding: textPadding,
+          //padding: textPadding,
           alignment: Alignment.topLeft,
-          child: markDown(content)
+          child: markDown(content),
         ),
       ],
     );

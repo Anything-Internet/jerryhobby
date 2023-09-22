@@ -1,28 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'components/app_utils.dart';
+import '../components/my_scaffold.dart';
+import '../util.dart';
 
 class Contact extends StatefulWidget {
-  Contact({Key? key}) : super(key: key);
+  const Contact({super.key});
 
   @override
-  State<StatefulWidget> createState() {
-    return ContactState();
-  }
+  State<Contact> createState() => _ContactState();
 }
 
-class ContactState extends State<Contact> {
-  final pageTitle = 'Contact Jerry';
-
+class _ContactState extends State<Contact> {
+  final pageTitle = 'Contact Me';
   late String content = "loading...";
-  late EdgeInsets textPadding = EdgeInsets.fromLTRB(30, 10, 30, 0);
+  final mdContent = "contact.md";
 
-  loadAsset(fileName) async {
-    return rootBundle.loadString("assets/content/$fileName");
-  }
-
-  ContactState() {
-    loadAsset("contact.md").then((value) {
+  _ContactState() {
+    loadAsset(mdContent).then((value) {
       setState(() {
         content = value;
       });
@@ -30,72 +23,25 @@ class ContactState extends State<Contact> {
   }
 
   @override
-  Widget build(context) {
-    var textButtonTheme = TextButtonThemeData(
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
-        foregroundColor: MaterialStateProperty.all<Color>(Colors.blue.shade700),
-        side: MaterialStateProperty.all<BorderSide>(BorderSide.none),
-      ),
-    );
+  Widget build(BuildContext context) {
+    return myScaffold(context: context, body: body);
+  }
 
+  body() {
     return ListView(
+      primary: false,
       children: [
         Center(
           child: SelectableText(
             pageTitle,
-            style: Theme.of(context).textTheme.headlineMedium,
+            style: Theme.of(context).textTheme.headlineLarge,
           ),
         ),
-        Divider(),
+        const Divider(),
         Container(
-          padding: textPadding,
+          //padding: textPadding,
           alignment: Alignment.topLeft,
           child: markDown(content),
-        ),
-        Container(
-          padding: textPadding,
-          alignment: Alignment.topLeft,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              TextButton(
-                  style: textButtonTheme.style,
-                  child: Text("Email: Jerry@JerryHobby.com"),
-                  onPressed: () {
-                    launchURLBrowser("mailto:Jerry@JerryHobby.com");
-                  }),
-              TextButton(
-                  style: textButtonTheme.style,
-                  child: Text("Website: https://www.JerryHobby.com"),
-                  onPressed: () {
-                    launchURLBrowser("https://www.JerryHobby.com");
-                  }),
-              TextButton(
-                  style: textButtonTheme.style,
-                  child: Text("Facebook: https://www.facebook.com/JerryHobby"),
-                  onPressed: () {
-                    launchURLBrowser("https://www.facebook.com/JerryHobby");
-                  }),
-              TextButton(
-                style: textButtonTheme.style,
-                child: Text("GitHub Profile:  https://github.com/JerryHobby"),
-                onPressed: () {
-                  launchURLBrowser("https://github.com/JerryHobby");
-                },
-              ),
-              TextButton(
-                style: textButtonTheme.style,
-                child: Text(
-                    "GitHub Repositories: https://github.com/orgs/Anything-Internet/repositories"),
-                onPressed: () {
-                  launchURLBrowser(
-                      "https://github.com/orgs/Anything-Internet/repositories");
-                },
-              ),
-            ],
-          ),
         ),
       ],
     );

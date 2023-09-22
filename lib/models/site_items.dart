@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import '/util.dart';
 
-import 'components/app_utils.dart';
-
+const String assetFolder = 'images/';
 final List<SiteItem> sites = [
   SiteItem(
       'Travel App Mock-up',
-      ExactAssetImage('assets/images/figma_travel_app.gif', scale: 2),
+      ExactAssetImage('$assetFolder/figma_travel_app.gif', scale: 2),
       '''
 This is only a graphical mock-up of a travel app.  It is not functional. It was
 developed in Figma.  It shows the original wireframe, the design with content,
@@ -14,7 +14,7 @@ and finally the design with colors and styles.  It is not a real app.
       ''),
   SiteItem(
       'Clima Weather',
-      ExactAssetImage('assets/images/climademo.gif', scale: 2),
+      ExactAssetImage('$assetFolder/climademo.gif', scale: 2),
       '''
 This is a weather app for Android and iOS. It is written in Flutter/Dart.
 It uses the OpenWeatherMap API to get the weather data.
@@ -25,7 +25,7 @@ that determines GPS location.  It works fine on Android and iOS.
       ''),
   SiteItem(
       'BMI Calculator',
-      AssetImage('assets/images/bmicalculator.png'),
+      AssetImage('$assetFolder/bmicalculator.png'),
       '''
 Are you healthy?  This basic BMI calculator may provide some insights.  
 It is written in Flutter/Dart.  Weight in pounds and height in inches.
@@ -33,7 +33,7 @@ It is written in Flutter/Dart.  Weight in pounds and height in inches.
       'https://jerryhobby.com/bmicalculator/'),
   SiteItem(
       'Destini',
-      AssetImage('assets/images/destini.png'),
+      AssetImage('$assetFolder/destini.png'),
       '''
 A demo app of an interactive story.  It is written in Flutter/Dart.
 
@@ -44,7 +44,7 @@ a longer story for it and add some graphics.
       'https://jerryhobby.com/destini/'),
   SiteItem(
       'Quizzler',
-      AssetImage('assets/images/quizzler.png'),
+      AssetImage('$assetFolder/quizzler.png'),
       '''
 Quizzler is a simple quiz app for Android and iOS. It is written in Flutter/Dart.
 
@@ -53,14 +53,14 @@ It has 100 questions.  It keeps track of your score.
       'https://jerryhobby.com/quizzler/'),
   SiteItem(
       'Xylophone',
-      AssetImage('assets/images/xylophone.png'),
+      AssetImage('$assetFolder/xylophone.png'),
       '''
 Xylophone is a simple app for Web, Mac, Android and iOS. It is written in Flutter/Dart.
 ''',
       'https://jerryhobby.com/xylophone/'),
   SiteItem(
       'Chess Trainer',
-      AssetImage('assets/images/chesstrainer.png'),
+      AssetImage('$assetFolder/chesstrainer.png'),
       '''
 Chess Trainer is a chess training app written in Flutter/Dart. It allows you to click through some puzzles.  But the moves don't work yet.  
 
@@ -69,7 +69,7 @@ I intend to tie it into StockFish and create sessions so that you can share your
       'https://jerryhobby.com/chesstrainer/'),
   SiteItem(
       'Magic 8-Ball',
-      AssetImage('assets/images/8ball.png'),
+      AssetImage('$assetFolder/8ball.png'),
       '''
 Magic 8-Ball is a simple app for Android and iOS. It is written in Flutter/Dart.  
 
@@ -78,7 +78,7 @@ This is a basic beginner app based on the Magic 8-Ball toy.
       'https://jerryhobby.com/magic8ball/'),
   SiteItem(
       'GameHub',
-      AssetImage('assets/images/gameon.png'),
+      AssetImage('$assetFolder/gameon.png'),
       '''
  GameHub is an app for browsing computer games. It is written in React and TypeScript.
  
@@ -87,7 +87,7 @@ This is a basic beginner app based on the Magic 8-Ball toy.
       'https://gamehub.jerryhobby.com/'),
   SiteItem(
     'Call Journal',
-    AssetImage('assets/images/calllogicon.png'),
+    AssetImage('$assetFolder/calllogicon.png'),
     '''
 Call Journal is a production application that I created with React/TypeScript. However, this version is written in Flutter/Dart.
 
@@ -97,7 +97,7 @@ This is barely functional at the moment.  The production version (not shown here
   ),
   SiteItem(
       "My Photos",
-      AssetImage('assets/images/hobbyphotography.png'),
+      AssetImage('$assetFolder/hobbyphotography.png'),
       '''
 Just a basic photo album where I upload photos for my friends and family.
 

@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import '../components/my_scaffold.dart';
 import '../util.dart';
 
-class Home extends StatefulWidget {
-  const Home({super.key});
+class BuildProcess extends StatefulWidget {
+  const BuildProcess({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
+  State<BuildProcess> createState() => _BuildProcessState();
 }
 
-class _HomeState extends State<Home> {
-  final pageTitle = 'Introducing Jerry';
-
+class _BuildProcessState extends State<BuildProcess> {
+  final pageTitle = 'Build Process';
   late String content = "loading...";
+  final mdContent = "build_process.md";
 
-  _HomeState() {
-    loadAsset("home.md").then((value) {
+  _BuildProcessState() {
+    loadAsset(mdContent).then((value) {
       setState(() {
         content = value;
       });

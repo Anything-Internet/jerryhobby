@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import '../components/my_scaffold.dart';
 import '../util.dart';
 
-class Home extends StatefulWidget {
-  const Home({super.key});
+class Resume extends StatefulWidget {
+  const Resume({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
+  State<Resume> createState() => _ResumeState();
 }
 
-class _HomeState extends State<Home> {
-  final pageTitle = 'Introducing Jerry';
-
+class _ResumeState extends State<Resume> {
+  final pageTitle = 'Resume';
   late String content = "loading...";
+  final mdContent = "resume.md";
 
-  _HomeState() {
-    loadAsset("home.md").then((value) {
+  _ResumeState() {
+    loadAsset(mdContent).then((value) {
       setState(() {
         content = value;
       });
@@ -42,6 +42,18 @@ class _HomeState extends State<Home> {
           //padding: textPadding,
           alignment: Alignment.topLeft,
           child: markDown(content),
+        ),
+        SizedBox(height: 20),
+        Container(
+          alignment: Alignment.topLeft,
+          child: TextButton(
+              child: Text("Business Analyst Resume",
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+              onPressed: () {
+                launchURLBrowser(
+                    "https://JerryHobby.com/resumes/Jerry_Hobby_Senior_Business_Analyst_Resume.pdf");
+              }),
         ),
       ],
     );

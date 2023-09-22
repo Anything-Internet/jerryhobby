@@ -1,6 +1,16 @@
+// functions needed throughout the app
+import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:jerry_hobby/pages/components/theme.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+class Util {
+  static late Function toggleTheme;
+  static late Function getThemeMode;
+}
+
+loadAsset(fileName) async {
+  return rootBundle.loadString("content/$fileName");
+}
 
 launchURLBrowser(var link) async {
   String linkUrl;
@@ -35,5 +45,6 @@ sendMail() async {
 
 markDown(String content) {
   return MarkdownBody(
-      styleSheet: markDownStyleSheet(), selectable: true, data: content);
+      //styleSheet: markDownStyleSheet(),
+      selectable: true, data: content);
 }

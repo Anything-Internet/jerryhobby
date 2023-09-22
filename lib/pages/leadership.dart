@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import '../components/my_scaffold.dart';
 import '../util.dart';
 
-class Home extends StatefulWidget {
-  const Home({super.key});
+class Leadership extends StatefulWidget {
+  const Leadership({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
+  State<Leadership> createState() => _LeadershipState();
 }
 
-class _HomeState extends State<Home> {
-  final pageTitle = 'Introducing Jerry';
-
+class _LeadershipState extends State<Leadership> {
+  final pageTitle = 'Leadership';
   late String content = "loading...";
+  final mdContent = "leadership.md";
 
-  _HomeState() {
-    loadAsset("home.md").then((value) {
+  _LeadershipState() {
+    loadAsset(mdContent).then((value) {
       setState(() {
         content = value;
       });
