@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../util.dart';
-
 class ContentCard extends StatelessWidget {
   final Widget child;
   final Widget? image;
