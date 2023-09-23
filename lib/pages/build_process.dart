@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../components/content_card.dart';
 import '../components/my_scaffold.dart';
 import '../util.dart';
 
@@ -11,13 +12,25 @@ class BuildProcess extends StatefulWidget {
 
 class _BuildProcessState extends State<BuildProcess> {
   final pageTitle = 'Build Process';
-  late String content = "loading...";
-  final mdContent = "build_process.md";
+  final content = [
+    "loading...",
+    "loading...",
+    "loading...",
+    "loading...",
+  ];
+  final mdContent = [
+    "build_process.md",
+    "build_process_1.md",
+    "build_process_2.md",
+    "build_process_3.md",
+  ];
 
   _BuildProcessState() {
-    loadAssetMarkdownContent(mdContent).then((value) {
-      setState(() {
-        content = value;
+    mdContent.forEach((element) {
+      loadAssetMarkdownContent(element).then((value) {
+        setState(() {
+          content[mdContent.indexOf(element)] = value;
+        });
       });
     });
   }
@@ -41,7 +54,21 @@ class _BuildProcessState extends State<BuildProcess> {
         Container(
           //padding: textPadding,
           alignment: Alignment.topLeft,
-          child: markDown(content),
+          child: markDown(content[0]),
+        ),
+        Wrap(
+          spacing: 50,
+          children: [
+            ContentCard(
+              child: markDown(content[1]),
+            ),
+            ContentCard(
+              child: markDown(content[2]),
+            ),
+            ContentCard(
+              child: markDown(content[3]),
+            ),
+          ],
         ),
       ],
     );
