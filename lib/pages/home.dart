@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jerry_hobby/components/page_heading.dart';
 import '../components/content_card.dart';
 import '../components/my_scaffold.dart';
 import '../util.dart';
@@ -41,13 +42,8 @@ class _HomeState extends State<Home> {
     return ListView(
       primary: false,
       children: [
-        Center(
-          child: SelectableText(
-            pageTitle,
-            style: Theme.of(context).textTheme.headlineLarge,
-          ),
-        ),
-        const Divider(),
+        PageHeading(title: pageTitle),
+        //const Divider(),
         Container(
           //padding: textPadding,
           alignment: Alignment.topLeft,
@@ -59,10 +55,13 @@ class _HomeState extends State<Home> {
               Expanded(
                 child: markDown(content[0]),
               ),
-              Image(
-                image: AssetImage('assets/images/jerry_hobby_headshot.png'),
+              ContentCard(
                 width: 200,
-                height: 200,
+                child: Image(
+                  image: AssetImage('assets/images/jerry_hobby_headshot.png'),
+                  width: 200,
+                  height: 200,
+                ),
               ),
             ],
           ),

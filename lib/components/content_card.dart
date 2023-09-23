@@ -27,7 +27,7 @@ class ContentCard extends StatelessWidget {
     return Container(
       width: cardWidth,
       padding: EdgeInsets.all(20),
-      margin: EdgeInsets.only(top: 40, bottom: 40),
+      margin: EdgeInsets.fromLTRB(30, 20, 30, 30),
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(

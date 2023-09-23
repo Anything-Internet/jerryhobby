@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../components/content_card.dart';
 import '../components/my_scaffold.dart';
+import '../components/page_heading.dart';
 import '../util.dart';
 
 class Resume extends StatefulWidget {
@@ -32,13 +33,8 @@ class _ResumeState extends State<Resume> {
     return ListView(
       primary: false,
       children: [
-        Center(
-          child: SelectableText(
-            pageTitle,
-            style: Theme.of(context).textTheme.headlineLarge,
-          ),
-        ),
-        const Divider(),
+        PageHeading(title: pageTitle),
+        //const Divider(),
         Container(
           //padding: textPadding,
           alignment: Alignment.topLeft,

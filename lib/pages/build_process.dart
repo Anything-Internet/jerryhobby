@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../components/content_card.dart';
 import '../components/my_scaffold.dart';
+import '../components/page_heading.dart';
 import '../util.dart';
 
 class BuildProcess extends StatefulWidget {
@@ -17,12 +18,14 @@ class _BuildProcessState extends State<BuildProcess> {
     "loading...",
     "loading...",
     "loading...",
+    "loading...",
   ];
   final mdContent = [
     "build_process.md",
     "build_process_1.md",
     "build_process_2.md",
     "build_process_3.md",
+    "build_process_4.md",
   ];
 
   _BuildProcessState() {
@@ -44,13 +47,8 @@ class _BuildProcessState extends State<BuildProcess> {
     return ListView(
       primary: false,
       children: [
-        Center(
-          child: SelectableText(
-            pageTitle,
-            style: Theme.of(context).textTheme.headlineLarge,
-          ),
-        ),
-        const Divider(),
+        PageHeading(title: pageTitle),
+        //const Divider(),
         Container(
           //padding: textPadding,
           alignment: Alignment.topLeft,
@@ -60,6 +58,9 @@ class _BuildProcessState extends State<BuildProcess> {
           spacing: 50,
           children: [
             ContentCard(
+            child: markDown(content[4]),
+          ),
+            ContentCard(
               child: markDown(content[1]),
             ),
             ContentCard(
@@ -68,6 +69,7 @@ class _BuildProcessState extends State<BuildProcess> {
             ContentCard(
               child: markDown(content[3]),
             ),
+
           ],
         ),
       ],

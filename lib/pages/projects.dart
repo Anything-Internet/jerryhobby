@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../components/content_card.dart';
 import '../components/my_scaffold.dart';
+import '../components/page_heading.dart';
 import '../models/site_items.dart';
 import '../util.dart';
 
@@ -32,19 +33,14 @@ class _ProjectsState extends State<Projects> {
   body() {
     return Column(
       children: [
-        Center(
-          child: SelectableText(
-            pageTitle,
-            style: Theme.of(context).textTheme.headlineLarge,
-          ),
-        ),
-        const Divider(),
+        PageHeading(title: pageTitle),
+        //const Divider(),
         Container(
           //padding: textPadding,
           alignment: Alignment.topLeft,
           child: markDown(content),
         ),
-        const Divider(),
+        //const Divider(),
         Expanded(
           child: siteRows(context),
         ),

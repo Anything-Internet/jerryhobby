@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../components/content_card.dart';
 import '../components/my_scaffold.dart';
+import '../components/page_heading.dart';
 import '../util.dart';
 
 class Technical extends StatefulWidget {
@@ -43,13 +44,8 @@ class _TechnicalState extends State<Technical> {
     return ListView(
       primary: false,
       children: [
-        Center(
-          child: SelectableText(
-            pageTitle,
-            style: Theme.of(context).textTheme.headlineLarge,
-          ),
-        ),
-        const Divider(),
+        PageHeading(title: pageTitle),
+        //const Divider(),
 
         Wrap(
           spacing: 50,
