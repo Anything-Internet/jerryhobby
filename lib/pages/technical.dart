@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../components/content_card.dart';
 import '../components/my_scaffold.dart';
 import '../util.dart';
 
@@ -11,13 +12,22 @@ class Technical extends StatefulWidget {
 
 class _TechnicalState extends State<Technical> {
   final pageTitle = 'Technical Skills';
-  late String content = "loading...";
-  final mdContent = "technical.md";
+  final content = [
+    "loading...",
+    "loading...",
+    "loading...",];
+  final mdContent = [
+    "technical_1.md",
+    "technical_2.md",
+    "technical_3.md",
+  ];
 
   _TechnicalState() {
-    loadAssetMarkdownContent(mdContent).then((value) {
-      setState(() {
-        content = value;
+    mdContent.forEach((element) {
+      loadAssetMarkdownContent(element).then((value) {
+        setState(() {
+          content[mdContent.indexOf(element)] = value;
+        });
       });
     });
   }
@@ -38,10 +48,22 @@ class _TechnicalState extends State<Technical> {
           ),
         ),
         const Divider(),
-        Container(
-          //padding: textPadding,
-          alignment: Alignment.topLeft,
-          child: markDown(content),
+        Wrap(
+          spacing: 50,
+          children: [
+            ContentCard(
+              width: 300,
+              child: markDown(content[0]),
+            ),
+            ContentCard(
+             width: 200,
+              child: markDown(content[1]),
+            ),
+            ContentCard(
+              width: 500,
+              child: markDown(content[2]),
+            ),
+          ],
         ),
       ],
     );

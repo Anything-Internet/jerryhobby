@@ -1,18 +1,9 @@
-## Skills
-* Business Requirements
-* Technical Design
-* Process Improvement
-* Software Development
-* Customer Service	
-* Technical Expertise
-* Communication Skills
-* Project Management
-* Airline Experience
-* Navigator, EZR, SHARES
-* Linux Administration
-* Network Administration
+Experienced in consulting with customers and stakeholders to 
+gather requirements, define scopes and create project plans.
+Capability of managing complex, high-visibility technical projects.
 
-![skills](resource:images/experience/leadership_skills.png)
-
-
-  
+Effective at technical support, inventory management and customer 
+relationship development. Results-focused, technical project manager 
+with many years of proven success in developing and leading 
+cross-functional technical teams to execute and deliver major 
+technology initiatives.

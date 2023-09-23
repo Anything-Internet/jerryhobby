@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../components/content_card.dart';
 import '../components/my_scaffold.dart';
 import '../util.dart';
 
@@ -11,13 +12,23 @@ class Leadership extends StatefulWidget {
 
 class _LeadershipState extends State<Leadership> {
   final pageTitle = 'Leadership';
-  late String content = "loading...";
-  final mdContent = "leadership.md";
+  final content = [
+    "loading...",
+    "loading...",
+    "loading...",
+  ];
+  final mdContent = [
+    "leadership.md",
+    "leadership_1.md",
+    "leadership_2.md",
+  ];
 
   _LeadershipState() {
-    loadAssetMarkdownContent(mdContent).then((value) {
-      setState(() {
-        content = value;
+    mdContent.forEach((element) {
+      loadAssetMarkdownContent(element).then((value) {
+        setState(() {
+          content[mdContent.indexOf(element)] = value;
+        });
       });
     });
   }
@@ -38,10 +49,19 @@ class _LeadershipState extends State<Leadership> {
           ),
         ),
         const Divider(),
-        Container(
-          //padding: textPadding,
-          alignment: Alignment.topLeft,
-          child: markDown(content),
+        markDown(content[0]),
+        Wrap(
+          spacing: 50,
+          children: [
+            ContentCard(
+              width: 300,
+              child: markDown(content[1]),
+            ),
+            ContentCard(
+              width: 500,
+              child: markDown(content[2]),
+            ),
+          ],
         ),
       ],
     );

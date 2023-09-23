@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../components/content_card.dart';
 import '../components/my_scaffold.dart';
 import '../util.dart';
 
@@ -43,9 +44,7 @@ class _ContactState extends State<Contact> {
           alignment: Alignment.topLeft,
           child: markDown(content),
         ),
-        const Divider(),
-        Container(
-          alignment: Alignment.topLeft,
+        ContentCard(
           child: TextButton(
               child: Text("[Jerry@JerryHobby.com]",
                 style: Theme.of(context).textTheme.headlineSmall,

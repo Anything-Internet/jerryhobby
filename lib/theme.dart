@@ -122,8 +122,8 @@ ThemeData appLightTheme = ThemeData.light().copyWith(
     onPrimary: Colors.white,
     primaryContainer: Colors.grey,
     onPrimaryContainer: Colors.black,
-    secondary: Colors.black54,
-    onSecondary: Colors.grey,
+    secondary: Color.fromRGBO(225, 225, 225, 1),
+    onSecondary: Colors.black,
     secondaryContainer: Colors.green,
     onSecondaryContainer: Colors.lightBlueAccent,
     surface: Colors.black,
@@ -177,14 +177,14 @@ ThemeData appLightTheme = ThemeData.light().copyWith(
 );
 
 ThemeData appDarkTheme = ThemeData.dark().copyWith(
-  colorScheme: const ColorScheme(
+  colorScheme:  ColorScheme(
     brightness: Brightness.dark,
     primary: Colors.black,
     onPrimary: Colors.black,
     primaryContainer: Colors.white10,
     onPrimaryContainer: Colors.white,
-    secondary: Colors.black54,
-    onSecondary: Colors.grey,
+    secondary: Color.fromRGBO(28, 28, 28, 1),
+    onSecondary: Colors.white,
     secondaryContainer: Colors.green,
     onSecondaryContainer: Colors.lightBlueAccent,
     surface: Colors.black,

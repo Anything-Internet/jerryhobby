@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../components/content_card.dart';
 import '../components/my_scaffold.dart';
 import '../util.dart';
 
@@ -44,8 +45,7 @@ class _ResumeState extends State<Resume> {
           child: markDown(content),
         ),
         SizedBox(height: 20),
-        Container(
-          alignment: Alignment.topLeft,
+        ContentCard(
           child: TextButton(
               child: Text("Business Analyst Resume",
                 style: Theme.of(context).textTheme.headlineMedium,
