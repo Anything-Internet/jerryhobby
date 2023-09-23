@@ -15,16 +15,28 @@ class ContentCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color borderColor = Theme.of(context).colorScheme.onSecondary;
+    Color borderColor =
+        Theme.of(context).colorScheme.onSecondary.withOpacity(0.25);
     double cardWidth = (width == null) ? double.infinity : width!;
     Color backgroundColor =
         (bgColor == null) ? Theme.of(context).colorScheme.secondary : bgColor!;
+
+    // borderColor =
+    // Colors.blue.withOpacity(0.5);
 
     return Container(
       width: cardWidth,
       padding: EdgeInsets.all(20),
       margin: EdgeInsets.only(top: 40, bottom: 40),
       decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: borderColor.withOpacity(0.15),
+            spreadRadius: 2,
+            blurRadius: 2,
+            offset: Offset(2, 3),
+          ),
+        ],
         color: backgroundColor,
         border: Border.all(
           color: borderColor,

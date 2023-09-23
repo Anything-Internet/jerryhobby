@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../components/content_card.dart';
 import '../components/my_scaffold.dart';
 import '../models/site_items.dart';
 import '../util.dart';
@@ -67,24 +68,7 @@ siteRows(BuildContext context) {
       final item = sites[index];
 
       return SelectionArea(
-        child: Container(
-          padding: const EdgeInsets.fromLTRB(5, 0, 5, 10),
-          margin: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.background,
-            borderRadius: BorderRadius.circular(10),
-            border: Border.all(
-              color: Theme.of(context).colorScheme.onPrimaryContainer,
-              width: 1,
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(.5),
-                blurRadius: 10,
-                offset: const Offset(0, 0),
-              ),
-            ],
-          ),
+        child: ContentCard(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,

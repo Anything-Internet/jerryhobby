@@ -49,10 +49,14 @@ class _LeadershipState extends State<Leadership> {
           ),
         ),
         const Divider(),
-        markDown(content[0]),
         Wrap(
           spacing: 50,
           children: [
+            Container(
+              //padding: textPadding,
+              alignment: Alignment.topLeft,
+              child: markDown(content[0]),
+            ),
             ContentCard(
               width: 300,
               child: markDown(content[1]),

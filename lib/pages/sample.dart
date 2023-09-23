@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../components/content_card.dart';
 import '../components/my_scaffold.dart';
 import '../util.dart';
 
@@ -11,13 +12,23 @@ class Articles extends StatefulWidget {
 
 class _ArticlesState extends State<Articles> {
   final pageTitle = 'title';
-  late String content = "loading...";
-  final mdContent = "sample.md";
+  final content = [
+    "loading...",
+    "loading...",
+    "loading...",
+  ];
+  final mdContent = [
+    "sample.md",
+    "sample_1.md",
+    "sample_2.md",
+  ];
 
   _ArticlesState() {
-    loadAssetMarkdownContent(mdContent).then((value) {
-      setState(() {
-        content = value;
+    mdContent.forEach((element) {
+      loadAssetMarkdownContent(element).then((value) {
+        setState(() {
+          content[mdContent.indexOf(element)] = value;
+        });
       });
     });
   }
@@ -41,7 +52,20 @@ class _ArticlesState extends State<Articles> {
         Container(
           //padding: textPadding,
           alignment: Alignment.topLeft,
-          child: markDown(content),
+          child: markDown(content[0]),
+        ),
+        Wrap(
+          spacing: 50,
+          children: [
+            ContentCard(
+              width: 300,
+              child: markDown(content[1]),
+            ),
+            ContentCard(
+              width: 300,
+              child: markDown(content[2]),
+            ),
+          ],
         ),
       ],
     );

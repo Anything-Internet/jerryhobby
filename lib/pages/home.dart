@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../components/content_card.dart';
 import '../components/my_scaffold.dart';
 import '../util.dart';
 
@@ -11,13 +12,22 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final pageTitle = 'Introducing Jerry';
-
-  late String content = "loading...";
+  final content = [
+    "loading...",
+    "loading...",
+    "loading...",
+  ];
+  final mdContent = [
+    "home.md",
+    "home_1.md",
+  ];
 
   _HomeState() {
-    loadAssetMarkdownContent("home.md").then((value) {
-      setState(() {
-        content = value;
+    mdContent.forEach((element) {
+      loadAssetMarkdownContent(element).then((value) {
+        setState(() {
+          content[mdContent.indexOf(element)] = value;
+        });
       });
     });
   }
@@ -46,8 +56,9 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(child: markDown(content),),
-
+              Expanded(
+                child: markDown(content[0]),
+              ),
               Image(
                 image: AssetImage('assets/images/jerry_hobby_headshot.png'),
                 width: 200,
@@ -55,6 +66,14 @@ class _HomeState extends State<Home> {
               ),
             ],
           ),
+        ),
+        Wrap(
+          spacing: 50,
+          children: [
+            ContentCard(
+              child: markDown(content[1]),
+            ),
+          ],
         ),
       ],
     );

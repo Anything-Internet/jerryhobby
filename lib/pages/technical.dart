@@ -15,8 +15,10 @@ class _TechnicalState extends State<Technical> {
   final content = [
     "loading...",
     "loading...",
+    "loading...",
     "loading...",];
   final mdContent = [
+    "technical.md",
     "technical_1.md",
     "technical_2.md",
     "technical_3.md",
@@ -48,20 +50,26 @@ class _TechnicalState extends State<Technical> {
           ),
         ),
         const Divider(),
+
         Wrap(
           spacing: 50,
           children: [
-            ContentCard(
-              width: 300,
+            Container(
+              //padding: textPadding,
+              alignment: Alignment.topLeft,
               child: markDown(content[0]),
             ),
             ContentCard(
-             width: 200,
+              width: 300,
               child: markDown(content[1]),
             ),
             ContentCard(
-              width: 500,
+             width: 200,
               child: markDown(content[2]),
+            ),
+            ContentCard(
+              width: 500,
+              child: markDown(content[3]),
             ),
           ],
         ),

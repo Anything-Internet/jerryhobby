@@ -46,7 +46,8 @@ class _ContactState extends State<Contact> {
         ),
         ContentCard(
           child: TextButton(
-              child: Text("[Jerry@JerryHobby.com]",
+              child: Text("713-298-4862\n"
+                  "Jerry@JerryHobby.com",
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
               onPressed: () {
