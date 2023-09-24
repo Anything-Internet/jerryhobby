@@ -57,7 +57,6 @@ class _HomeState extends State<Home> {
                 child: Column(
                   children: [
                       markDown(content[0]),
-
                     ContentCard(
                       child: markDown(content[1]),
                     ),
@@ -67,6 +66,7 @@ class _HomeState extends State<Home> {
 
               ContentCard(
                 width: MediaQuery.of(context).size.width * 0.3,
+                maxWidth: 200,
                 child: Image(
                   image: AssetImage('assets/images/jerry_hobby_headshot.png'),
                 ),

@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 class ContentCard extends StatelessWidget {
   final Widget child;
   final Widget? image;
-  final double? width;
+  final double width;
+  final double maxWidth;
   late final Color? bgColor;
 
   ContentCard({
     required this.child,
     this.image,
-    this.width,
+    this.width = double.infinity,
+    this.maxWidth = double.infinity,
     this.bgColor,
   }) : super(key: UniqueKey());
 
@@ -17,7 +19,7 @@ class ContentCard extends StatelessWidget {
   Widget build(BuildContext context) {
     Color borderColor =
         Theme.of(context).colorScheme.onSecondary.withOpacity(0.25);
-    double cardWidth = (width == null) ? double.infinity : width!;
+    double cardWidth = width;
     Color backgroundColor =
         (bgColor == null) ? Theme.of(context).colorScheme.secondary : bgColor!;
 
@@ -26,6 +28,9 @@ class ContentCard extends StatelessWidget {
 
     return Container(
       width: cardWidth,
+      constraints: BoxConstraints(
+        maxWidth: maxWidth,
+      ),
       padding: EdgeInsets.all(20),
       margin: EdgeInsets.fromLTRB(30, 20, 30, 30),
       decoration: BoxDecoration(

@@ -47,7 +47,9 @@ class _ProjectsState extends State<Projects> {
           alignment: Alignment.topLeft,
           child: markDown(content[0]),
         ),
-        Column(
+        Wrap(
+          //mainAxisAlignment: MainAxisAlignment.start,
+          //crossAxisAlignment: CrossAxisAlignment.start,
           children: projectCards(context),
         ),
       ],
@@ -61,58 +63,63 @@ projectCards(BuildContext context) {
     (item) {
       mySites.add(
         ContentCard(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                width: 130,
-                alignment: Alignment.topCenter,
-                padding: const EdgeInsets.fromLTRB(0, 18, 20, 20),
-                child: item.buildImage(context),
-              ),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      item.title,
-                      style: Theme.of(context).textTheme.headlineMedium,
-                    ),
-                    const Divider(
-                      indent: 0,
-                      endIndent: 0,
-                    ),
-                    item.buildDescription(context),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    item.url != ''
-                        ? const SizedBox.shrink()
-                        : SizedBox(
-                            width: 300,
-                            child: item.buildImage(context),
-                          ),
-                    InkWell(
-                      onTap: () {
-                        launchURLBrowser(item.url);
-                      },
-                      child: Text(
-                        item.url,
-                        style: const TextStyle(
-                          //color: Colors.blue,
-                          decoration: TextDecoration.underline,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+          maxWidth: 400,
+          child: projectCard(context, item),
         ),
       );
     },
   );
   return mySites;
+}
+
+projectCard(BuildContext context, SiteItem item) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Container(
+        width: 130,
+        alignment: Alignment.topCenter,
+        padding: const EdgeInsets.fromLTRB(0, 18, 20, 20),
+        child: item.buildImage(context),
+      ),
+      Expanded(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              item.title,
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            const Divider(
+              indent: 0,
+              endIndent: 0,
+            ),
+            item.buildDescription(context),
+            const SizedBox(
+              height: 10,
+            ),
+            item.url != ''
+                ? const SizedBox.shrink()
+                : SizedBox(
+                    width: 300,
+                    child: item.buildImage(context),
+                  ),
+            InkWell(
+              onTap: () {
+                launchURLBrowser(item.url);
+              },
+              child: Text(
+                item.url,
+                style: const TextStyle(
+                  //color: Colors.blue,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ],
+  );
 }
