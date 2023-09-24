@@ -2,11 +2,11 @@
 import 'package:flutter/material.dart';
 class PageHeading extends StatelessWidget {
   late final String title;
-  late final String? subtitle;
+  late final String? subTitle;
 
   PageHeading({
     required this.title,
-    this.subtitle,
+    this.subTitle,
 
   }) : super(key: UniqueKey());
 
@@ -20,6 +20,13 @@ class PageHeading extends StatelessWidget {
           style: Theme.of(context).textTheme.headlineLarge,
         ),
       ),
+      if (subTitle != null)
+        Center(
+          child: SelectableText(
+            subTitle!,
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+        ),
         SizedBox(height: 40),
         //Divider(),
     ],

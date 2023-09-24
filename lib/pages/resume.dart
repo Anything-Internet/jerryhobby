@@ -43,7 +43,8 @@ class _ResumeState extends State<Resume> {
         SizedBox(height: 20),
         ContentCard(
           child: TextButton(
-              child: Text("Business Analyst Resume",
+              child: Text(
+                "Business Analyst Resume",
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
               onPressed: () {

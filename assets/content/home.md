@@ -1,7 +1,13 @@
+Business technology impacts efficiency, work quality, and
+customer satisfaction.  Properly implemented, it can
+drive sales and increase revenue.
 
-The goal of technology is to provide consistent results to the customer as quickly as possible.
+Finding the right balance between cost and benefit is 
+a challenge. Information technology is critical to gain a 
+competitive advantage.  
 
-My experience has focused on these types of solutions. 
-As a software developer, as an infrastructure engineer, 
-and as a project manager.
+Business-minded technologists are hard to find. That is 
+where I come in. I have a proven track record of solving 
+Fortune 100 business problems with technology.
+
 

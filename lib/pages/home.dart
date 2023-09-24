@@ -13,6 +13,8 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final pageTitle = 'Introducing Jerry';
+  final subTitle =
+      'Technology futurist. Author. Programmer. World traveler. Radio personality.';
   final content = [
     "loading...",
     "loading...",
@@ -42,8 +44,10 @@ class _HomeState extends State<Home> {
     return ListView(
       primary: false,
       children: [
-        PageHeading(title: pageTitle),
-        //const Divider(),
+        PageHeading(
+          title: pageTitle,
+          subTitle: subTitle,
+        ),
         Container(
           //padding: textPadding,
           alignment: Alignment.topLeft,

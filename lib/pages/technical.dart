@@ -13,11 +13,13 @@ class Technical extends StatefulWidget {
 
 class _TechnicalState extends State<Technical> {
   final pageTitle = 'Technical Skills';
+  final subTitle = 'A true geek with a strong business sense.';
   final content = [
     "loading...",
     "loading...",
     "loading...",
-    "loading...",];
+    "loading...",
+  ];
   final mdContent = [
     "technical.md",
     "technical_1.md",
@@ -44,9 +46,10 @@ class _TechnicalState extends State<Technical> {
     return ListView(
       primary: false,
       children: [
-        PageHeading(title: pageTitle),
-        //const Divider(),
-
+        PageHeading(
+          title: pageTitle,
+          subTitle: subTitle,
+        ),
         Wrap(
           spacing: 50,
           children: [
@@ -60,7 +63,7 @@ class _TechnicalState extends State<Technical> {
               child: markDown(content[1]),
             ),
             ContentCard(
-             width: 200,
+              width: 200,
               child: markDown(content[2]),
             ),
             ContentCard(

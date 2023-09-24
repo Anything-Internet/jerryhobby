@@ -13,6 +13,7 @@ class BuildProcess extends StatefulWidget {
 
 class _BuildProcessState extends State<BuildProcess> {
   final pageTitle = 'Build Process';
+  final subTitle = 'How I built this app. Tools and processes.';
   final content = [
     "loading...",
     "loading...",
@@ -47,8 +48,10 @@ class _BuildProcessState extends State<BuildProcess> {
     return ListView(
       primary: false,
       children: [
-        PageHeading(title: pageTitle),
-        //const Divider(),
+        PageHeading(
+          title: pageTitle,
+          subTitle: subTitle,
+        ),
         Container(
           //padding: textPadding,
           alignment: Alignment.topLeft,
@@ -58,8 +61,8 @@ class _BuildProcessState extends State<BuildProcess> {
           spacing: 50,
           children: [
             ContentCard(
-            child: markDown(content[4]),
-          ),
+              child: markDown(content[4]),
+            ),
             ContentCard(
               child: markDown(content[1]),
             ),
@@ -69,7 +72,6 @@ class _BuildProcessState extends State<BuildProcess> {
             ContentCard(
               child: markDown(content[3]),
             ),
-
           ],
         ),
       ],

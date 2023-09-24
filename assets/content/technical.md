@@ -1,3 +1,7 @@
-I have always embraced learning and have 
-been fortunate to have had the opportunity to
-work on a variety of projects and technologies.
+My passion for learning and teaching computer science gives
+me the strong desire to share my knowledge with others. 
+
+My technical skills give me an edge as a technological leader.  I
+stay true to my roots as a software engineer by keeping my skills
+well honed.  I am a full stack developer with a strong background in
+operating systems and programming languages.

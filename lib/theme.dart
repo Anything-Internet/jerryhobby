@@ -47,7 +47,7 @@ import 'package:flutter/material.dart';
 
 DividerThemeData dividerTheme = const DividerThemeData(
   space: 50,
-  thickness: 2,
+  thickness: 1,
   indent: 0,
   endIndent: 0,
 );
@@ -65,7 +65,7 @@ TextTheme textTheme = const TextTheme(
   ),
   headlineSmall: TextStyle(
     fontFamily: 'SF Pro Display',
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: FontWeight.normal,
   ),
   displayLarge: TextStyle(
@@ -95,7 +95,7 @@ TextTheme textTheme = const TextTheme(
   ),
   titleSmall: TextStyle(
     fontFamily: 'SF Pro Display',
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: FontWeight.bold,
   ),
   bodyLarge: TextStyle(
@@ -144,7 +144,7 @@ ThemeData appLightTheme = ThemeData.light().copyWith(
       color: Colors.black,
     ),
     headlineSmall: textTheme.headlineSmall?.copyWith(
-      color: Colors.black,
+      color: Colors.black54,
     ),
     displayLarge: textTheme.displayLarge?.copyWith(
       color: Colors.black,

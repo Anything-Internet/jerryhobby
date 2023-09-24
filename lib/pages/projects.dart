@@ -14,6 +14,8 @@ class Projects extends StatefulWidget {
 
 class _ProjectsState extends State<Projects> {
   final pageTitle = 'Projects';
+  final subTitle =
+      'Little projects that keep my skills sharp and help me teach others.';
   late String content = "loading...";
   final mdContent = "projects.md";
 
@@ -33,14 +35,15 @@ class _ProjectsState extends State<Projects> {
   body() {
     return Column(
       children: [
-        PageHeading(title: pageTitle),
-        //const Divider(),
+        PageHeading(
+          title: pageTitle,
+          subTitle: subTitle,
+        ),
         Container(
           //padding: textPadding,
           alignment: Alignment.topLeft,
           child: markDown(content),
         ),
-        //const Divider(),
         Expanded(
           child: siteRows(context),
         ),

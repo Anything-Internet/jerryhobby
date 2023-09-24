@@ -13,6 +13,7 @@ class Articles extends StatefulWidget {
 
 class _ArticlesState extends State<Articles> {
   final pageTitle = 'title';
+  final subTitle = 'subTitle';
   final content = [
     "loading...",
     "loading...",
@@ -43,10 +44,11 @@ class _ArticlesState extends State<Articles> {
     return ListView(
       primary: false,
       children: [
-        PageHeading(title: pageTitle),
-        //const Divider(),
+        PageHeading(
+          title: pageTitle,
+          subTitle: subTitle,
+        ),
         Container(
-          //padding: textPadding,
           alignment: Alignment.topLeft,
           child: markDown(content[0]),
         ),

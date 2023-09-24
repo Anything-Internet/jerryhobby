@@ -13,6 +13,7 @@ class Leadership extends StatefulWidget {
 
 class _LeadershipState extends State<Leadership> {
   final pageTitle = 'Leadership';
+  final subTitle = 'Bridging the gap between leadership and technology.';
   final content = [
     "loading...",
     "loading...",
@@ -43,8 +44,10 @@ class _LeadershipState extends State<Leadership> {
     return ListView(
       primary: false,
       children: [
-        PageHeading(title: pageTitle),
-        //const Divider(),
+        PageHeading(
+          title: pageTitle,
+          subTitle: subTitle,
+        ),
         Wrap(
           spacing: 50,
           children: [

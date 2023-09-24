@@ -12,6 +12,7 @@ class Articles extends StatefulWidget {
 
 class _ArticlesState extends State<Articles> {
   final pageTitle = 'Articles';
+  final subTitle = 'Jerry\'s technology blog.';
   late String content = "loading...";
   final mdContent = "articles.md";
 
@@ -32,7 +33,10 @@ class _ArticlesState extends State<Articles> {
     return ListView(
       primary: false,
       children: [
-        PageHeading(title: pageTitle),
+        PageHeading(
+            title: pageTitle,
+            subTitle: subTitle,
+        ),
         //const Divider(),
         Container(
           //padding: textPadding,

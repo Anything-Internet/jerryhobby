@@ -13,6 +13,7 @@ class Experience extends StatefulWidget {
 
 class _ExperienceState extends State<Experience> {
   final pageTitle = 'Experience';
+  final subTitle = 'My Work Experience, for what it\'s worth.';
   final content = [
     "loading...",
     "loading...",
@@ -42,7 +43,10 @@ class _ExperienceState extends State<Experience> {
     return ListView(
       primary: false,
       children: [
-        PageHeading(title: pageTitle),
+        PageHeading(
+          title: pageTitle,
+          subTitle: subTitle,
+        ),
         //const Divider(),
         Wrap(
           spacing: 50,
