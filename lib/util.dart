@@ -35,12 +35,12 @@ launchURLBrowser(var link) async {
   }
 }
 
-sendMail() async {
+sendMail()  {
   final Uri uri = Uri(
       scheme: 'mailto',
       path: 'Jerry@JerryHobby.com',
       queryParameters: {'subject': 'JerryHobby.com Inquiry'});
-  await launchURLBrowser(uri);
+  launchURLBrowser(uri);
 }
 
 loadAssetMarkdownContent(fileName) async {

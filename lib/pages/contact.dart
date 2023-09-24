@@ -44,15 +44,37 @@ class _ContactState extends State<Contact> {
           child: markDown(content[0]),
         ),
         ContentCard(
-          child: TextButton(
-              child: Text(
-                "713-298-4862\n"
-                "Jerry@JerryHobby.com",
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                "Jerry Hobby",
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
-              onPressed: () {
-                sendMail();
-              }),
+              Text(
+                "Houston, TX",
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+              Text(
+                "713-298-4862",
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+              SizedBox(height: 10),
+              TextButton(
+                style: ButtonStyle(
+                  padding: MaterialStateProperty.all<EdgeInsets>(
+                      EdgeInsets.all(0)),
+                ),
+                  child: Text(
+                    "Jerry@JerryHobby.com",
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
+                  onPressed: () {
+                    sendMail();
+                  }),
+            ],
+          ),
         ),
       ],
     );
