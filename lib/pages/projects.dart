@@ -36,7 +36,7 @@ class _ProjectsState extends State<Projects> {
   }
 
   body() {
-    return Column(
+    return ListView(
       children: [
         PageHeading(
           title: pageTitle,
@@ -47,30 +47,20 @@ class _ProjectsState extends State<Projects> {
           alignment: Alignment.topLeft,
           child: markDown(content[0]),
         ),
-        Expanded(
-          child: siteRows(context),
+        Column(
+          children: projectCards(context),
         ),
       ],
     );
   }
 }
 
-siteRows(BuildContext context) {
-  return ListView.separated(
-    separatorBuilder: (context, index) => Container(
-      height: 10,
-    ),
-
-    padding: const EdgeInsets.fromLTRB(5, 0, 5, 10),
-    // Let the ListView know how many items it needs to build.
-    itemCount: sites.length,
-    // Provide a builder function. This is where the magic happens.
-    // Convert each item into a widget based on the type of item it is.
-    itemBuilder: (context, index) {
-      final item = sites[index];
-
-      return SelectionArea(
-        child: ContentCard(
+projectCards(BuildContext context) {
+  List<Widget> mySites = [];
+  sites.forEach(
+    (item) {
+      mySites.add(
+        ContentCard(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -124,4 +114,5 @@ siteRows(BuildContext context) {
       );
     },
   );
+  return mySites;
 }
