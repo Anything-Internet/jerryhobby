@@ -27,20 +27,25 @@ launchURLBrowser(var link) async {
     throw 'Could not identify $link';
   }
 
-  if (await canLaunchUrl(linkUri)) {
-    print("Opening linkUri: ${linkUri.toString()}");
-    await launchUrl(linkUri);
-  } else {
-    throw 'Could not open $linkUrl';
+  try {
+    if (await canLaunchUrl(linkUri)) {
+      print("Opening linkUri: ${linkUri.toString()}");
+      await launchUrl(linkUri);
+    } else {
+      throw 'Could not open $linkUrl';
+    }
+  } catch (e) {
+    print("Error opening linkUri: ${linkUri.toString()}");
+    print(e);
   }
 }
 
-sendMail()  {
+sendMail() {
   final Uri uri = Uri(
       scheme: 'mailto',
       path: 'Jerry@JerryHobby.com',
       queryParameters: {'subject': 'JerryHobby.com Inquiry'});
-  launchURLBrowser(uri);
+  launchUrl(uri);
 }
 
 loadAssetMarkdownContent(fileName) async {
