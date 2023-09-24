@@ -14,11 +14,7 @@ class Experience extends StatefulWidget {
 class _ExperienceState extends State<Experience> {
   final pageTitle = 'Experience';
   final subTitle = 'My Work Experience, for what it\'s worth.';
-  final content = [
-    "loading...",
-    "loading...",
-    "loading...",
-  ];
+  List<String> content = [];
   final mdContent = [
     "experience_1.md",
     "experience_2.md",
@@ -26,6 +22,7 @@ class _ExperienceState extends State<Experience> {
   ];
   _ExperienceState() {
     mdContent.forEach((element) {
+      content.add("loading...");
       loadAssetMarkdownContent(element).then((value) {
         setState(() {
           content[mdContent.indexOf(element)] = value;

@@ -13,13 +13,16 @@ class Resume extends StatefulWidget {
 
 class _ResumeState extends State<Resume> {
   final pageTitle = 'Resume';
-  late String content = "loading...";
-  final mdContent = "resume.md";
+  List<String> content = [];
+  final mdContent = ["resume.md"];
 
   _ResumeState() {
-    loadAssetMarkdownContent(mdContent).then((value) {
-      setState(() {
-        content = value;
+    mdContent.forEach((element) {
+      content.add("loading...");
+      loadAssetMarkdownContent(element).then((value) {
+        setState(() {
+          content[mdContent.indexOf(element)] = value;
+        });
       });
     });
   }
@@ -38,7 +41,7 @@ class _ResumeState extends State<Resume> {
         Container(
           //padding: textPadding,
           alignment: Alignment.topLeft,
-          child: markDown(content),
+          child: markDown(content[0]),
         ),
         SizedBox(height: 20),
         ContentCard(

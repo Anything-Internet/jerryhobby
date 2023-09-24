@@ -14,11 +14,7 @@ class Leadership extends StatefulWidget {
 class _LeadershipState extends State<Leadership> {
   final pageTitle = 'Leadership';
   final subTitle = 'Bridging the gap between leadership and technology.';
-  final content = [
-    "loading...",
-    "loading...",
-    "loading...",
-  ];
+  List<String> content = [];
   final mdContent = [
     "leadership.md",
     "leadership_1.md",
@@ -27,6 +23,7 @@ class _LeadershipState extends State<Leadership> {
 
   _LeadershipState() {
     mdContent.forEach((element) {
+      content.add("loading...");
       loadAssetMarkdownContent(element).then((value) {
         setState(() {
           content[mdContent.indexOf(element)] = value;

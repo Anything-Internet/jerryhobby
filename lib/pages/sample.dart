@@ -14,11 +14,7 @@ class Articles extends StatefulWidget {
 class _ArticlesState extends State<Articles> {
   final pageTitle = 'title';
   final subTitle = 'subTitle';
-  final content = [
-    "loading...",
-    "loading...",
-    "loading...",
-  ];
+  List<String> content = [];
   final mdContent = [
     "sample.md",
     "sample_1.md",
@@ -27,6 +23,7 @@ class _ArticlesState extends State<Articles> {
 
   _ArticlesState() {
     mdContent.forEach((element) {
+      content.add("loading...");
       loadAssetMarkdownContent(element).then((value) {
         setState(() {
           content[mdContent.indexOf(element)] = value;

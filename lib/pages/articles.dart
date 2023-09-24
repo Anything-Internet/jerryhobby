@@ -13,13 +13,16 @@ class Articles extends StatefulWidget {
 class _ArticlesState extends State<Articles> {
   final pageTitle = 'Articles';
   final subTitle = 'Jerry\'s technology blog.';
-  late String content = "loading...";
-  final mdContent = "articles.md";
+  List<String> content = [];
+  final mdContent = ["articles.md"];
 
   _ArticlesState() {
-    loadAssetMarkdownContent(mdContent).then((value) {
-      setState(() {
-        content = value;
+    mdContent.forEach((element) {
+      content.add("loading...");
+      loadAssetMarkdownContent(element).then((value) {
+        setState(() {
+          content[mdContent.indexOf(element)] = value;
+        });
       });
     });
   }
@@ -41,7 +44,7 @@ class _ArticlesState extends State<Articles> {
         Container(
           //padding: textPadding,
           alignment: Alignment.topLeft,
-          child: markDown(content),
+          child: markDown(content[0]),
         ),
       ],
     );

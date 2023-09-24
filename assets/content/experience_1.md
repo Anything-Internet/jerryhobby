@@ -1,4 +1,4 @@
-**Global Services Reservations Agent, 10/2021 to Current**  
+**Global Services, 10/2021 to Current**  
 **United Airlines – Houston, TX**
 
 * Provided high level of customer service 

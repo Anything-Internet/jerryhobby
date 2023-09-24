@@ -13,13 +13,16 @@ class Contact extends StatefulWidget {
 
 class _ContactState extends State<Contact> {
   final pageTitle = 'Contact Me';
-  late String content = "loading...";
-  final mdContent = "contact.md";
+  List<String> content = [];
+  final mdContent = ["contact.md"];
 
   _ContactState() {
-    loadAssetMarkdownContent(mdContent).then((value) {
-      setState(() {
-        content = value;
+    mdContent.forEach((element) {
+      content.add("loading...");
+      loadAssetMarkdownContent(element).then((value) {
+        setState(() {
+          content[mdContent.indexOf(element)] = value;
+        });
       });
     });
   }
@@ -38,7 +41,7 @@ class _ContactState extends State<Contact> {
         Container(
           //padding: textPadding,
           alignment: Alignment.topLeft,
-          child: markDown(content),
+          child: markDown(content[0]),
         ),
         ContentCard(
           child: TextButton(

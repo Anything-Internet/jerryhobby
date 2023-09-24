@@ -14,13 +14,7 @@ class BuildProcess extends StatefulWidget {
 class _BuildProcessState extends State<BuildProcess> {
   final pageTitle = 'Build Process';
   final subTitle = 'How I built this app. Tools and processes.';
-  final content = [
-    "loading...",
-    "loading...",
-    "loading...",
-    "loading...",
-    "loading...",
-  ];
+  List<String> content = [];
   final mdContent = [
     "build_process.md",
     "build_process_1.md",
@@ -31,6 +25,7 @@ class _BuildProcessState extends State<BuildProcess> {
 
   _BuildProcessState() {
     mdContent.forEach((element) {
+      content.add("loading...");
       loadAssetMarkdownContent(element).then((value) {
         setState(() {
           content[mdContent.indexOf(element)] = value;

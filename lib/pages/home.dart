@@ -15,11 +15,7 @@ class _HomeState extends State<Home> {
   final pageTitle = 'Introducing Jerry';
   final subTitle =
       'Technology futurist. Author. Programmer. World traveler. Radio personality.';
-  final content = [
-    "loading...",
-    "loading...",
-    "loading...",
-  ];
+   List<String> content = [];
   final mdContent = [
     "home.md",
     "home_1.md",
@@ -27,6 +23,7 @@ class _HomeState extends State<Home> {
 
   _HomeState() {
     mdContent.forEach((element) {
+      content.add("loading...");
       loadAssetMarkdownContent(element).then((value) {
         setState(() {
           content[mdContent.indexOf(element)] = value;
@@ -57,27 +54,34 @@ class _HomeState extends State<Home> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                child: markDown(content[0]),
-              ),
+                child: Column(
+                  children: [
+                      markDown(content[0]),
+
+                    ContentCard(
+                      child: markDown(content[1]),
+                    ),
+                  ],
+                ),
+            ),
+
               ContentCard(
-                width: 200,
+                width: MediaQuery.of(context).size.width * 0.3,
                 child: Image(
                   image: AssetImage('assets/images/jerry_hobby_headshot.png'),
-                  width: 200,
-                  height: 200,
                 ),
               ),
             ],
           ),
         ),
-        Wrap(
-          spacing: 50,
-          children: [
-            ContentCard(
-              child: markDown(content[1]),
-            ),
-          ],
-        ),
+        // Wrap(
+        //   spacing: 50,
+        //   children: [
+        //     ContentCard(
+        //       child: markDown(content[1]),
+        //     ),
+        //   ],
+        // ),
       ],
     );
   }

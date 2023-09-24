@@ -14,12 +14,7 @@ class Technical extends StatefulWidget {
 class _TechnicalState extends State<Technical> {
   final pageTitle = 'Technical Skills';
   final subTitle = 'A true geek with a strong business sense.';
-  final content = [
-    "loading...",
-    "loading...",
-    "loading...",
-    "loading...",
-  ];
+  List<String> content = [];
   final mdContent = [
     "technical.md",
     "technical_1.md",
@@ -29,6 +24,7 @@ class _TechnicalState extends State<Technical> {
 
   _TechnicalState() {
     mdContent.forEach((element) {
+      content.add("loading...");
       loadAssetMarkdownContent(element).then((value) {
         setState(() {
           content[mdContent.indexOf(element)] = value;

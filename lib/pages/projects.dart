@@ -16,13 +16,16 @@ class _ProjectsState extends State<Projects> {
   final pageTitle = 'Projects';
   final subTitle =
       'Little projects that keep my skills sharp and help me teach others.';
-  late String content = "loading...";
-  final mdContent = "projects.md";
+  List<String> content = [];
+  final mdContent = ["projects.md"];
 
   _ProjectsState() {
-    loadAssetMarkdownContent(mdContent).then((value) {
-      setState(() {
-        content = value;
+    mdContent.forEach((element) {
+      content.add("loading...");
+      loadAssetMarkdownContent(element).then((value) {
+        setState(() {
+          content[mdContent.indexOf(element)] = value;
+        });
       });
     });
   }
@@ -42,7 +45,7 @@ class _ProjectsState extends State<Projects> {
         Container(
           //padding: textPadding,
           alignment: Alignment.topLeft,
-          child: markDown(content),
+          child: markDown(content[0]),
         ),
         Expanded(
           child: siteRows(context),
