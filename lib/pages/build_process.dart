@@ -56,7 +56,7 @@ class _BuildProcessState extends State<BuildProcess> {
           spacing: 50,
           children: [
             ContentCard(
-              maxWidth: 800,
+              maxWidth: 1000,
               child: markDown(content[4]),
             ),
             ContentCard(
