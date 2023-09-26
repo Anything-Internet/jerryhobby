@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'util.dart';
 
 // TODO textTheme
 // TODO buttonTheme
@@ -54,62 +55,62 @@ DividerThemeData dividerTheme = const DividerThemeData(
 
 TextTheme textTheme = const TextTheme(
   headlineLarge: TextStyle(
-    fontFamily: 'SF Pro Display',
+    fontFamily: kDefaultFontFamily,
     fontSize: 30,
     fontWeight: FontWeight.bold,
   ),
   headlineMedium: TextStyle(
-    fontFamily: 'SF Pro Display',
+    fontFamily: kDefaultFontFamily,
     fontSize: 25,
     fontWeight: FontWeight.bold,
   ),
   headlineSmall: TextStyle(
-    fontFamily: 'SF Pro Display',
+    fontFamily: kDefaultFontFamily,
     fontSize: 30,
     fontWeight: FontWeight.bold,
   ),
   displayLarge: TextStyle(
-    fontFamily: 'SF Pro Display',
+    fontFamily: kDefaultFontFamily,
     fontSize: 30,
     fontWeight: FontWeight.bold,
   ),
   displayMedium: TextStyle(
-    fontFamily: 'SF Pro Display',
+    fontFamily: kDefaultFontFamily,
     fontSize: 25,
     fontWeight: FontWeight.bold,
   ),
   displaySmall: TextStyle(
-    fontFamily: 'SF Pro Display',
+    fontFamily: kDefaultFontFamily,
     fontSize: 20,
     fontWeight: FontWeight.normal,
   ),
   titleLarge: TextStyle(
-    fontFamily: 'SF Pro Display',
+    fontFamily: kDefaultFontFamily,
     fontSize: 30,
     fontWeight: FontWeight.bold,
   ),
   titleMedium: TextStyle(
-    fontFamily: 'SF Pro Display',
+    fontFamily: kDefaultFontFamily,
     fontSize: 25,
     fontWeight: FontWeight.bold,
   ),
   titleSmall: TextStyle(
-    fontFamily: 'SF Pro Display',
+    fontFamily: kDefaultFontFamily,
     fontSize: 14,
     fontWeight: FontWeight.bold,
   ),
   bodyLarge: TextStyle(
-    fontFamily: 'SF Pro Display',
+    fontFamily: kDefaultFontFamily,
     fontSize: 20,
     fontWeight: FontWeight.normal,
   ),
   bodyMedium: TextStyle(
-    fontFamily: 'SF Pro Display',
+    fontFamily: kDefaultFontFamily,
     fontSize: 16,
     fontWeight: FontWeight.normal,
   ),
   bodySmall: TextStyle(
-    fontFamily: 'SF Pro Display',
+    fontFamily: kDefaultFontFamily,
     fontSize: 14,
     fontWeight: FontWeight.normal,
   ),

@@ -13,7 +13,7 @@ class Articles extends StatefulWidget {
 }
 
 class _ArticlesState extends State<Articles> {
-  final pageIcon = Icon(Icons.article_outlined);
+  final pageIcon = kIconArticle;
   final pageTitle = 'Articles';
   final subTitle = 'Jerry\'s wisdom on leadership and technology.';
   List<String> content = [];

@@ -12,7 +12,7 @@ class Technical extends StatefulWidget {
 }
 
 class _TechnicalState extends State<Technical> {
-  final pageIcon = Icon(Icons.manage_accounts_outlined);
+  final pageIcon = kIconTechnical;
   final pageTitle = 'Technical Skills';
   final subTitle = 'A true geek with a strong business sense.';
   List<String> content = [];

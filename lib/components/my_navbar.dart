@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jerry_hobby/util.dart';
 import '/pages/articles.dart';
 import '/pages/contact.dart';
 import '/pages/experience.dart';
@@ -30,9 +31,22 @@ final Map mainMenu = {
   '/technical': 'Technical',
   '/experience': 'Experience',
   '/projects': 'Projects',
+  '/buildProcess': 'Build Process',
   '/resume': 'Resume',
   '/contact': 'Contact',
-  // '/buildProcess': 'Build Process',
+};
+
+
+final Map mainMenuIcons = {
+  '/': kIconHome,
+  '/articles': kIconArticle,
+  '/leadership': kIconLeadership,
+  '/technical': kIconTechnical,
+  '/experience': kIconExperience,
+  '/projects': kIconProjects,
+  '/buildProcess': kIconBuildProcess,
+  '/resume': kIconResume,
+  '/contact': kIconContact,
 };
 
 class MyNavBar extends StatelessWidget {
@@ -62,7 +76,11 @@ class MyNavBar extends StatelessWidget {
   navBarItems(BuildContext context) {
     List<Widget> navBarItems = [];
     mainMenu.forEach((key, value) {
-      navBarItems.add(navButton(context, key, value));
+      navBarItems.add(navButton(
+          context,
+          key,
+          value,
+          mainMenuIcons[key]));
     });
     return navBarItems;
   }
@@ -71,14 +89,30 @@ class MyNavBar extends StatelessWidget {
     BuildContext context,
     String route,
     String text,
+      Icon? icon,
   ) {
     return TextButton(
       onPressed: () {
         Navigator.pushNamed(context, route);
       },
-      child: Text(
-        text,
-        style: Theme.of(context).textTheme.titleSmall,
+      child: Wrap(
+        crossAxisAlignment: WrapCrossAlignment.center,
+        children: [
+          (icon != null)
+              ? Container(
+            margin: EdgeInsets.only(right: 2),
+            child: Icon(
+              icon.icon,
+              size: 16,
+              color: Theme.of(context).colorScheme.onPrimaryContainer.withOpacity(0.6),
+            ),
+          )
+              : SizedBox(height: 0),
+          Text(
+            text,
+            style: Theme.of(context).textTheme.titleSmall,
+          ),
+        ],
       ),
     );
   }

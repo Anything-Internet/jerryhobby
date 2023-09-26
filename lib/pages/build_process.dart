@@ -12,7 +12,7 @@ class BuildProcess extends StatefulWidget {
 }
 
 class _BuildProcessState extends State<BuildProcess> {
-  final pageIcon = Icon(Icons.bubble_chart_outlined);
+  final pageIcon = kIconBuildProcess;
   final pageTitle = 'Build Process';
   final subTitle = 'How I build apps. Tools and processes.';
   List<String> content = [];

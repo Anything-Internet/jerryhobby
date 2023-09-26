@@ -12,7 +12,7 @@ class Experience extends StatefulWidget {
 }
 
 class _ExperienceState extends State<Experience> {
-  final pageIcon = Icon(Icons.dashboard_customize_outlined);
+  final pageIcon = kIconExperience;
   final pageTitle = 'Experience';
   final subTitle = 'My Work Experience.';
   List<String> content = [];

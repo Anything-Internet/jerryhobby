@@ -12,7 +12,7 @@ class Resume extends StatefulWidget {
 }
 
 class _ResumeState extends State<Resume> {
-  final pageIcon = Icon(Icons.table_chart_outlined);
+  final pageIcon = kIconResume;
   final subTitle = 'My Resume, for what it\'s worth.';
   final pageTitle = 'Resume';
   List<String> content = [];

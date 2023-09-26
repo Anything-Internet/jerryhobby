@@ -12,7 +12,7 @@ class Contact extends StatefulWidget {
 }
 
 class _ContactState extends State<Contact> {
-  final pageIcon = Icon(Icons.contact_page_outlined);
+  final pageIcon = kIconContact;
   final pageTitle = 'Contact Me';
   final subTitle = 'How to reach me.';
   List<String> content = [];

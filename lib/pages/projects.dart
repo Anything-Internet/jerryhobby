@@ -13,7 +13,7 @@ class Projects extends StatefulWidget {
 }
 
 class _ProjectsState extends State<Projects> {
-  final pageIcon = Icon(Icons.code);
+  final pageIcon = kIconProjects;
   final pageTitle = 'Projects';
   final subTitle =
       'Little projects that keep my skills sharp and help me teach others.';

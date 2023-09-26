@@ -1,7 +1,9 @@
 // functions needed throughout the app
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 
 class Util {
   static late Function toggleTheme;
@@ -11,6 +13,18 @@ class Util {
 const String kAppName = "JerryHobby.com";
 const String kImageAssetPath = "assets/images";
 const String kContentAssetPath = "assets/content";
+
+const String kDefaultFontFamily = "SF Pro Display";
+
+const Icon kIconArticle = Icon(Icons.article_outlined);
+const Icon kIconContact = Icon(Icons.contact_page_outlined);
+const Icon kIconExperience = Icon(Icons.dashboard_customize_outlined);
+const Icon kIconHome = Icon(Icons.home_outlined);
+const Icon kIconResume = Icon(Icons.table_chart_outlined);
+const Icon kIconTechnical = Icon(Icons.code_outlined);
+const Icon kIconBuildProcess = Icon(Icons.bubble_chart_outlined);
+const Icon kIconLeadership = Icon(Icons.leaderboard_outlined);
+const Icon kIconProjects = Icon(Icons.work_outline_outlined);
 
 launchURLBrowser(var link) async {
   String linkUrl;

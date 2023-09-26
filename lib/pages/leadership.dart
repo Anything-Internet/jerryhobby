@@ -12,7 +12,7 @@ class Leadership extends StatefulWidget {
 }
 
 class _LeadershipState extends State<Leadership> {
-  final pageIcon = Icon(Icons.leaderboard_outlined);
+  final pageIcon = kIconLeadership;
   final pageTitle = 'Leadership';
   final subTitle = 'Bridging the gap between leadership and technology.';
   List<String> content = [];
