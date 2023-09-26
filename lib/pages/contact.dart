@@ -12,7 +12,9 @@ class Contact extends StatefulWidget {
 }
 
 class _ContactState extends State<Contact> {
+  final pageIcon = Icon(Icons.contact_page_outlined);
   final pageTitle = 'Contact Me';
+  final subTitle = 'How to reach me.';
   List<String> content = [];
   final mdContent = ["contact.md"];
 
@@ -36,7 +38,10 @@ class _ContactState extends State<Contact> {
     return ListView(
       primary: false,
       children: [
-        PageHeading(title: pageTitle),
+        PageHeading(
+            icon: pageIcon,
+            subTitle: subTitle,
+            title: pageTitle),
         //const Divider(),
         Container(
           //padding: textPadding,
@@ -50,15 +55,15 @@ class _ContactState extends State<Contact> {
             children: [
               Text(
                 "Jerry Hobby",
-                style: Theme.of(context).textTheme.headlineSmall,
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
               Text(
                 "Houston, TX",
-                style: Theme.of(context).textTheme.headlineSmall,
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
               Text(
                 "713-298-4862",
-                style: Theme.of(context).textTheme.headlineSmall,
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
               SizedBox(height: 10),
               TextButton(
@@ -68,7 +73,7 @@ class _ContactState extends State<Contact> {
                 ),
                   child: Text(
                     "Jerry@JerryHobby.com",
-                    style: Theme.of(context).textTheme.headlineSmall,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   onPressed: () {
                     sendMail();

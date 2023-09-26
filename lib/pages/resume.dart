@@ -12,6 +12,8 @@ class Resume extends StatefulWidget {
 }
 
 class _ResumeState extends State<Resume> {
+  final pageIcon = Icon(Icons.table_chart_outlined);
+  final subTitle = 'My Resume, for what it\'s worth.';
   final pageTitle = 'Resume';
   List<String> content = [];
   final mdContent = ["resume.md"];
@@ -36,7 +38,10 @@ class _ResumeState extends State<Resume> {
     return ListView(
       primary: false,
       children: [
-        PageHeading(title: pageTitle),
+        PageHeading(
+          icon: pageIcon,
+            subTitle: subTitle,
+            title: pageTitle),
         //const Divider(),
         Container(
           //padding: textPadding,

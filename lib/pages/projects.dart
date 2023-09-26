@@ -13,6 +13,7 @@ class Projects extends StatefulWidget {
 }
 
 class _ProjectsState extends State<Projects> {
+  final pageIcon = Icon(Icons.code);
   final pageTitle = 'Projects';
   final subTitle =
       'Little projects that keep my skills sharp and help me teach others.';
@@ -39,6 +40,7 @@ class _ProjectsState extends State<Projects> {
     return ListView(
       children: [
         PageHeading(
+          icon: pageIcon,
           title: pageTitle,
           subTitle: subTitle,
         ),

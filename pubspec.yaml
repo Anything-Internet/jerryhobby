@@ -47,6 +47,8 @@ flutter:
     - assets/images/
     - assets/images/experience/
     - assets/content/
+    - assets/content/documents/technology/
+    - assets/content/documents/leadership/
     - .env
 
   # An image asset can refer to one or more resolution-specific "variants", see

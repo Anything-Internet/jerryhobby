@@ -12,6 +12,7 @@ class Technical extends StatefulWidget {
 }
 
 class _TechnicalState extends State<Technical> {
+  final pageIcon = Icon(Icons.manage_accounts_outlined);
   final pageTitle = 'Technical Skills';
   final subTitle = 'A true geek with a strong business sense.';
   List<String> content = [];
@@ -43,6 +44,7 @@ class _TechnicalState extends State<Technical> {
       primary: false,
       children: [
         PageHeading(
+          icon: pageIcon,
           title: pageTitle,
           subTitle: subTitle,
         ),

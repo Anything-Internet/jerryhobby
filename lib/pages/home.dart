@@ -12,6 +12,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final pageIcon = Icon(Icons.home_outlined);
   final pageTitle = 'Introducing Jerry';
   final subTitle =
       'Technology futurist. Author. Programmer. World traveler. Radio personality.';
@@ -42,6 +43,7 @@ class _HomeState extends State<Home> {
       primary: false,
       children: [
         PageHeading(
+          icon: pageIcon,
           title: pageTitle,
           subTitle: subTitle,
         ),

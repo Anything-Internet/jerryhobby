@@ -65,8 +65,8 @@ TextTheme textTheme = const TextTheme(
   ),
   headlineSmall: TextStyle(
     fontFamily: 'SF Pro Display',
-    fontSize: 16,
-    fontWeight: FontWeight.normal,
+    fontSize: 30,
+    fontWeight: FontWeight.bold,
   ),
   displayLarge: TextStyle(
     fontFamily: 'SF Pro Display',
@@ -119,10 +119,10 @@ ThemeData appLightTheme = ThemeData.light().copyWith(
   colorScheme: const ColorScheme(
     brightness: Brightness.light,
     primary: Colors.white,
-    onPrimary: Colors.white,
+    onPrimary: Colors.black,
     primaryContainer: Colors.grey,
     onPrimaryContainer: Colors.black,
-    secondary: Color.fromRGBO(225, 225, 225, 1),
+    secondary: Color.fromRGBO(245, 245, 245, 1),
     onSecondary: Colors.black,
     secondaryContainer: Colors.green,
     onSecondaryContainer: Colors.lightBlueAccent,
@@ -144,7 +144,7 @@ ThemeData appLightTheme = ThemeData.light().copyWith(
       color: Colors.black,
     ),
     headlineSmall: textTheme.headlineSmall?.copyWith(
-      color: Colors.black54,
+      color: Colors.black,
     ),
     displayLarge: textTheme.displayLarge?.copyWith(
       color: Colors.black,
@@ -180,7 +180,7 @@ ThemeData appDarkTheme = ThemeData.dark().copyWith(
   colorScheme:  ColorScheme(
     brightness: Brightness.dark,
     primary: Colors.black,
-    onPrimary: Colors.black,
+    onPrimary: Colors.white,
     primaryContainer: Colors.white10,
     onPrimaryContainer: Colors.white,
     secondary: Color.fromRGBO(28, 28, 28, 1),

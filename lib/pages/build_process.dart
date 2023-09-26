@@ -12,8 +12,9 @@ class BuildProcess extends StatefulWidget {
 }
 
 class _BuildProcessState extends State<BuildProcess> {
+  final pageIcon = Icon(Icons.bubble_chart_outlined);
   final pageTitle = 'Build Process';
-  final subTitle = 'How I built this app. Tools and processes.';
+  final subTitle = 'How I build apps. Tools and processes.';
   List<String> content = [];
   final mdContent = [
     "build_process.md",
@@ -44,6 +45,7 @@ class _BuildProcessState extends State<BuildProcess> {
       primary: false,
       children: [
         PageHeading(
+          icon: pageIcon,
           title: pageTitle,
           subTitle: subTitle,
         ),

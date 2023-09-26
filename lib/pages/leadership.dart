@@ -12,6 +12,7 @@ class Leadership extends StatefulWidget {
 }
 
 class _LeadershipState extends State<Leadership> {
+  final pageIcon = Icon(Icons.leaderboard_outlined);
   final pageTitle = 'Leadership';
   final subTitle = 'Bridging the gap between leadership and technology.';
   List<String> content = [];
@@ -44,6 +45,7 @@ class _LeadershipState extends State<Leadership> {
         PageHeading(
           title: pageTitle,
           subTitle: subTitle,
+          icon: pageIcon,
         ),
         Wrap(
           spacing: 50,
